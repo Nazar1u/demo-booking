@@ -276,6 +276,35 @@ rooms[]              { apiReservationID, roomTypeID, roomTypeApiID,
 
 ⚠️ **Не викликалось.** Заголовок `UTM-Marks` теж потрібен.
 
+> **Порядок кроків.** Оплата йде не одразу після `/book`, а в три виклики:
+> `/book` → `/payment-info` (звідси беруться `services` і перелік
+> `paymentServices`) → `/make-payment`. Це видно з call-site у бандлі: payload
+> платежу збирається з `_billInfoModel.paymentInfo`, а `services` фільтруються
+> по `customerAccount == apiReservationID`.
+
+**Запит** (форма з двох call-site у бандлі):
+
+```json
+{
+  "companyKey": "6DFA7A01-…",
+  "account": "<apiReservationID>",
+  "hotelID": 161,
+  "currency": 980,
+  "accountName": "Ім'я Прізвище",
+  "email": "guest@example.com",
+  "phone": "+380…",
+  "services": [ { "customerAccount": "…", "total": 16200, "priceDates": [] } ],
+  "paymentPartsQuantity": null,
+  "useIFrame": false,
+  "paymentService": null,
+  "promocode": null
+}
+```
+
+`paymentService` — конкретний сервіс з `paymentInfo.paymentServices[]`;
+`null` означає «за замовчуванням». `useIFrame` віджет ставить у `true` лише
+для `paymentDisplayMode == "PaymentModalIframe"`.
+
 > **Розбіжність з ТЗ.** У завданні крок описаний як «перехід на оплату —
 > посилання віддає той самий API». Насправді єдиного «посилання на оплату» не
 > існує: `/make-payment` віддає `paymentServiceID`, і далі поведінка залежить
@@ -309,8 +338,9 @@ rooms[]              { apiReservationID, roomTypeID, roomTypeApiID,
 /payment-info?companyKey={key}&account={account}&currency=980[&promocode=…]
 ```
 
-`account` — ідентифікатор рахунку з броні. З чужим `account` віддає
-`isError: true`. Знадобиться, лише якщо треба буде перечитати суму.
+`account` — ідентифікатор рахунку з броні (`apiReservationID`). З чужим
+`account` віддає `isError: true`. **Обов'язковий крок перед
+`/make-payment`:** звідси беруться `services` і доступні `paymentServices`.
 
 ## Що це означає для реалізації
 

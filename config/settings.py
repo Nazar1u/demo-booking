@@ -166,6 +166,51 @@ SERVIO_API_BASE = env(
     default='https://smartspot.servio.support/ServioQR/hms/api',
 )
 
-SERVIO_HOTEL_ID = env('SERVIO_HOTEL_ID', default='')
+# Two different identifiers, both required (see docs/servio-api.md):
+#   companyKey — tenant GUID, hotelID — the hotel's internal numeric id.
+# Neither is a secret: both are visible in the public booking widget.
+SERVIO_COMPANY_KEY = env('SERVIO_COMPANY_KEY', default='')
+SERVIO_HOTEL_ID = env.int('SERVIO_HOTEL_ID', default=0)
 
 SERVIO_TIMEOUT = env.float('SERVIO_TIMEOUT', default=15.0)
+
+
+# Logging
+# Every Servio call is logged as key=value (see booking/services/servio.py).
+# Without an explicit config those records would be dropped once DEBUG=False,
+# which is exactly when we need them.
+
+LOG_LEVEL = env('LOG_LEVEL', default='INFO')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'app': {
+            'format': '{asctime} {levelname} {name} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'app',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'booking': {
+            'handlers': ['console'],
+            'level': LOG_LEVEL,
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+    },
+}

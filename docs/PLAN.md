@@ -184,7 +184,28 @@ env (`admin:demo`). Потрібна, бо за умовами ТЗ на деп�
 
 ---
 
-## Фаза 3 — Клієнт до Servio (1 день)
+## Фаза 3 — Клієнт до Servio ✅ ВИКОНАНО
+
+- [x] **3.1** [booking/services/servio.py](../booking/services/servio.py) —
+      єдина точка контакту. `search_rooms`, `create_booking`,
+      `get_payment_info`, `make_payment` + `build_booking_payload`
+- [x] **3.2** `httpx` з явними таймаутами, retry тільки на read-only,
+      dataclass'и назовні, логування кожного виклику як `key=value`
+- [x] **3.3** 48 тестів на фікстурах, без мережі
+      ([tests/test_servio_client.py](../tests/test_servio_client.py))
+
+Додано `LOGGING` у settings: без нього записи клієнта зникали б при
+`DEBUG=False` — тобто саме тоді, коли потрібні. Рівень — `LOG_LEVEL`.
+
+Уточнення до Фази 1, знайдене при написанні клієнта: оплата — це **три**
+виклики, `/book` → `/payment-info` → `/make-payment`. `services` і перелік
+платіжних сервісів беруться з середнього кроку, тому `get_payment_info`
+входить у публічний API клієнта.
+
+Розділено ідентифікатори: `SERVIO_COMPANY_KEY` (GUID tenant) і
+`SERVIO_HOTEL_ID` (числовий `161`) — це різні поля запиту.
+
+### Деталі
 
 **3.1** `booking/services/servio.py` — єдина точка контакту з чужим API:
 
