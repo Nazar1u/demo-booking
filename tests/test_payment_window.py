@@ -256,3 +256,15 @@ class AdminDeadlineTests(TestCase):
         make()
         response = self.client.get('/admin/booking/booking/')
         self.assertIn(f'href="{PAY_URL}"', response.content.decode())
+
+    def test_reservation_number_is_in_the_list(self):
+        """Готель шукає бронь за номером у HMS, тож він мусить бути видний
+        без відкриття кожного запису."""
+        make()
+        response = self.client.get('/admin/booking/booking/')
+        self.assertContains(response, '0000049452')
+
+    def test_adding_bookings_from_the_admin_is_blocked(self):
+        response = self.client.get('/admin/booking/booking/')
+        # Кнопка «Додати» саме для броней, а не для будь-якої моделі в меню
+        self.assertNotContains(response, 'href="/admin/booking/booking/add/"')

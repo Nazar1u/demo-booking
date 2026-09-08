@@ -7,8 +7,11 @@ on:
 
 permissions:
   contents: read
+  packages: write
 
 # Новий пуш у ту саму гілку скасовує попередній прогін.
+# cancel-in-progress безпечний, бо деплой ідемпотентний і завжди
+# розгортає образ конкретного коміту, а не «останній».
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -154,3 +157,140 @@ jobs:
       - name: Tear down
         if: always()
         run: docker compose down -v
+
+  # --------------------------------------------------------------------
+  # Реліз: збірка під архітектуру сервера і публікація в GHCR
+  # --------------------------------------------------------------------
+  image:
+    name: build arm64 image
+    needs: [check, postgres, docker]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # Сервер — aarch64 (Ubuntu 26.04 на Hetzner CAX). Нативний ARM-раннер
+    # безкоштовний для публічних репозиторіїв і в разів швидший за QEMU.
+    runs-on: ubuntu-24.04-arm
+
+    outputs:
+      image: ${{ steps.meta.outputs.image }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compute image reference
+        id: meta
+        run: |
+          # Тег по SHA, а не latest: деплой завжди розгортає конкретний коміт,
+          # і зрозуміло, що саме зараз на сервері.
+          repo=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          echo "image=ghcr.io/${repo}:sha-${GITHUB_SHA::12}" >> "$GITHUB_OUTPUT"
+          echo "latest=ghcr.io/${repo}:latest" >> "$GITHUB_OUTPUT"
+
+      - name: Log in to GHCR
+        run: |
+          printf '%s' '${{ secrets.GITHUB_TOKEN }}' \
+            | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
+
+      - name: Build and push
+        run: |
+          docker build \
+            -t '${{ steps.meta.outputs.image }}' \
+            -t '${{ steps.meta.outputs.latest }}' \
+            .
+          docker push '${{ steps.meta.outputs.image }}'
+          docker push '${{ steps.meta.outputs.latest }}'
+
+      - name: Verify the image actually boots on arm64
+        run: |
+          echo '::group::smoke'
+          docker run --rm --entrypoint python '${{ steps.meta.outputs.image }}' \
+            -c "import django, gunicorn, psycopg, whitenoise, platform;
+          print('arch     ', platform.machine());
+          print('python   ', platform.python_version());
+          print('django   ', django.__version__);
+          print('gunicorn ', gunicorn.__version__);
+          print('psycopg  ', psycopg.__version__)"
+          echo '::endgroup::'
+
+  deploy:
+    name: deploy to the server
+    needs: [image]
+    runs-on: ubuntu-latest
+
+    # Два деплої одночасно на один сервер — гарантований конфлікт.
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
+
+    env:
+      IMAGE: ${{ needs.image.outputs.image }}
+      APP_DIR: /opt/demo-booking
+
+    steps:
+      - name: Prepare SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' '${{ secrets.SSH_PRIVATE_KEY }}' > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          # Ключ хоста беремо сканом. Строгіший варіант — покласти його в
+          # секрет SSH_KNOWN_HOSTS; для демо-стенда це прийнятний компроміс.
+          ssh-keyscan -H '${{ secrets.SSH_HOST }}' >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Log the server in to GHCR
+        run: |
+          # Токен іде через stdin, не через аргументи: інакше він видний у
+          # списку процесів на сервері.
+          printf '%s' '${{ secrets.GITHUB_TOKEN }}' \
+            | ssh -i ~/.ssh/id_ed25519 \
+                '${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}' \
+                "docker login ghcr.io -u '${{ github.actor }}' --password-stdin"
+
+      - name: Pull and restart
+        run: |
+          ssh -i ~/.ssh/id_ed25519 \
+            '${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}' \
+            "set -eu
+             cd '${APP_DIR}'
+             # Запис у .env робить вибір образу durable: наступний
+             # `docker compose up` вручну підніме той самий коміт.
+             sed -i '/^WEB_IMAGE=/d' .env
+             echo 'WEB_IMAGE=${IMAGE}' >> .env
+             docker compose pull
+             docker compose up -d --remove-orphans
+             docker image prune -f >/dev/null"
+
+      - name: Wait for /healthz
+        run: |
+          # migrate, collectstatic і ensure_admin виконує entrypoint, тому
+          # окремого кроку міграцій немає — здоровий /healthz означає, що
+          # вони пройшли.
+          for i in $(seq 1 40); do
+            if body=$(curl -fsS --max-time 10 \
+                'http://${{ secrets.SSH_HOST }}:8080/healthz' 2>/dev/null); then
+              echo "healthy: $body"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo '::error::сервіс не піднявся за 200 секунд'
+          exit 1
+
+      - name: Smoke-check the public pages
+        run: |
+          curl -fsS -o /dev/null -w 'search page  %{http_code}\n' \
+            'http://${{ secrets.SSH_HOST }}:8080/'
+          curl -fsS -o /dev/null -w 'admin login  %{http_code}\n' \
+            'http://${{ secrets.SSH_HOST }}:8080/admin/login/'
+
+      - name: Container state and logs
+        if: always()
+        run: |
+          ssh -i ~/.ssh/id_ed25519 \
+            '${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}' \
+            "cd '${APP_DIR}' && docker compose ps && docker compose logs --tail 60 --no-color"
+
+      - name: Report
+        run: |
+          echo "### Розгорнуто" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- образ: \`${IMAGE}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- сайт: http://${{ secrets.SSH_HOST }}:8080/" >> "$GITHUB_STEP_SUMMARY"
+          echo "- адмінка: http://${{ secrets.SSH_HOST }}:8080/admin/" >> "$GITHUB_STEP_SUMMARY"

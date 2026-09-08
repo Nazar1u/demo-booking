@@ -17,6 +17,7 @@ class BookingAdmin(admin.ModelAdmin):
 
     list_display = (
         'created_at',
+        'reservation',
         'guest_name',
         'room_name',
         'stay',
@@ -63,6 +64,11 @@ class BookingAdmin(admin.ModelAdmin):
             'fields': (('created_at', 'updated_at'),),
         }),
     )
+
+    @admin.display(description='Бронь у HMS', ordering='servio_booking_id')
+    def reservation(self, obj):
+        """Готель ідентифікує бронь саме цим номером, тож він у списку."""
+        return obj.servio_booking_id or '—'
 
     @admin.display(description='Період', ordering='check_in')
     def stay(self, obj):
@@ -118,7 +124,7 @@ class BookingAdmin(admin.ModelAdmin):
 
     def get_readonly_fields(self, request, obj=None):
         own = {'stay', 'guests_display', 'total', 'pay_link', 'deadline',
-               'raw_request_pretty', 'raw_response_pretty'}
+               'reservation', 'raw_request_pretty', 'raw_response_pretty'}
         return [f.name for f in self.model._meta.fields] + sorted(own)
 
     def has_add_permission(self, request):
