@@ -389,7 +389,82 @@ scratchpad (zip з binaries, `initdb` + `postgres` на порту 55432 — б�
 
 ---
 
-## Фаза 7 — Dockerization (1 день)
+## Фаза 7 — Dockerization ✅ ВИКОНАНО (крім 7.6)
+
+- [x] **7.1** [Dockerfile](../Dockerfile) — multi-stage, `uv sync --frozen
+      --no-dev`, non-root `app` (uid 10001), gunicorn, whitenoise
+- [x] **7.2** [docker-compose.yml](../docker-compose.yml) — `web` + `db`,
+      volume `pgdata`, порт `8080:8000`
+- [x] **7.3** [entrypoint.sh](../entrypoint.sh) — `migrate` → `collectstatic`
+      → `ensure_admin` → `gunicorn`
+- [x] **7.4** [.dockerignore](../.dockerignore)
+- [x] **7.5** Job `docker` у CI: **збирає образ і піднімає стек**, чекає
+      `/healthz`, перевіряє сторінки й статику, у кінці друкує логи
+- [ ] **7.6** Перша реальна бронь — потребує окремого «так», не робилась
+
+### Рішення й знахідки
+
+- **`/healthz` зроблено тут, а не у Фазі 9.** Без нього ні healthcheck
+  контейнера, ні compose `depends_on` не мають на що дивитись. Перевіряє БД
+  (застосунок без Postgres «живим» не вважається), але **не** чіпає Servio:
+  недоступність чужого API не має валити наш деплой
+- **`--timeout 120` у gunicorn.** Дефолтні 30 с убивали б воркер посеред
+  створення броні: пошук у Servio відповідає ~9 с, а крок 4 робить три
+  послідовних виклики до нього
+- **`CompressedStaticFilesStorage`, а не Manifest-варіант.** Manifest
+  жорстко падає на відсутньому манифесті — це ламало б і тести, і будь-який
+  `runserver` до `collectstatic`. Кеш-бастингу немає, для демо не критично
+- **uv копіюється з `ghcr.io/astral-sh/uv:0.12.10`** у звичайний
+  `python:3.14-slim`, замість тега `uv:python3.14-*`, якого може не існувати
+  для свіжого Python. Обидві стадії на однаковому тезі Python — venv несе
+  абсолютні шляхи
+- **`libpq` в образ не ставиться:** `psycopg[binary]` несе його в собі
+- **`.gitattributes` з `eol=lf`.** На машині розробки `core.autocrlf=true`,
+  тож git при наступному checkout зробив би з `entrypoint.sh` CRLF — і
+  контейнер падав би на шебангу з «no such file or directory»
+- **`WEB_IMAGE`** у compose дає Фазі 9 підставити образ із GHCR замість
+  збірки на сервері, не переписуючи compose
+- Обов'язкові змінні в compose оголошені як `${VAR:?}` — стек не піднімається
+  без `SECRET_KEY`, `POSTGRES_PASSWORD`, `ADMIN_PASSWORD`, `ALLOWED_HOSTS`,
+  `SERVIO_COMPANY_KEY`, `SERVIO_HOTEL_ID`. Краще впасти одразу, ніж
+  піднятися з дефолтним паролем
+
+### Що перевірено локально
+
+Docker на машині немає, тому перевірено все, що можливо без нього:
+
+- **132 тести** (додано 3 на `/healthz`, разом з падінням БД → 503) і ruff
+- `collectstatic` — 130 файлів + 130 gzip-копій
+- **Той самий `config.wsgi:application`, який запускає gunicorn**, прогнаний
+  через справжній HTTP (`wsgiref`) під `DEBUG=False`: `/healthz` → 200 JSON,
+  головна → 200, `/rooms/` і `/guest/` → 302 без сесії, `/admin/login/` →
+  200, `/static/admin/css/base.css` → 200 `text/css` через whitenoise,
+  неіснуюча статика → 404
+- YAML compose і workflow — розібрані справжнім парсером; Dockerfile
+  перевірений на узгодженість стадій, шляху venv і non-root
+- `entrypoint.sh` — LF-only
+
+**Чого локально перевірити неможливо:** самого gunicorn (на Windows не
+запускається — потрібен `fcntl`) і збірки образу. Тому job `docker` у CI не
+просто збирає образ, а піднімає стек і стукає в `/healthz` — це і буде
+доказом, що gunicorn 26.2.0 під Python 3.14 працює. У класифікаторах пакета
+3.14 ще не вказано, хоч `requires-python >= 3.10` дозволяє.
+
+### Відомий висновок `check --deploy`
+
+`mail.E001` — консольний бекенд пошти. Сайт **не надсилає листів взагалі**
+(гостю пише HMS готелю), а перевірку знімає лише справжній SMTP. Вигадувати
+SMTP-сервер, якого немає, я не став: бекенд зроблено env-driven
+(`EMAIL_BACKEND`), тож деплой, якому пошта таки знадобиться, обійдеться без
+правок коду.
+
+Попередження `security.W004/W008/W012/W016` (HSTS, SSL-redirect, secure
+cookies) — **свідоме відхилення**: за ТЗ демо працює на голому HTTP
+(`http://<ip>:8080`), і вмикання цих налаштувань зламало б сайт, а не
+захистило. Усі три перемикачі env-driven, тож розгортання за TLS не
+потребує змін у коді.
+
+### Початковий план фази
 
 **7.1** `Dockerfile`, multi-stage:
 - Builder: `uv sync --frozen --no-dev` (використовуємо наявний `uv.lock`)

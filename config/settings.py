@@ -59,6 +59,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # Serves STATIC_ROOT straight from gunicorn — no nginx in front of the
+    # container. Must sit directly after SecurityMiddleware.
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -146,13 +149,44 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        # Compressed, but deliberately NOT the manifest variant: manifest
+        # storage hard-fails on a missing manifest, which would break every
+        # test run and any `runserver` before collectstatic.
+        'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
+    },
+}
+
+
+# Security
+# The assignment serves the demo over plain HTTP (http://<ip>:8080), so the
+# TLS-only switches stay off — turning them on would break the site rather
+# than protect it. They are env-driven so a TLS deployment needs no code change.
+
+SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=False)
+SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=False)
+CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)
+
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
+# This site never sends mail — the hotel's HMS notifies the guest. The backend
+# is env-driven anyway so a deployment that needs it can point at SMTP without
+# touching code. `check --deploy` reports mail.E001 for anything but SMTP;
+# that finding is expected here, see docs/PLAN.md.
 MAILERS = {
     'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+        'BACKEND': env(
+            'EMAIL_BACKEND',
+            default='django.core.mail.backends.console.EmailBackend',
+        ),
     },
 }
 

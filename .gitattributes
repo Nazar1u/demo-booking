@@ -1,0 +1,6 @@
+# На машині розробки core.autocrlf=true, тому без цього git при наступному
+# checkout зробив би з entrypoint.sh CRLF — і контейнер падав би з
+# «no such file or directory» на шебангу, без жодної підказки чому.
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.yml text eol=lf

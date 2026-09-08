@@ -12,6 +12,8 @@
 import logging
 
 from django.contrib import messages
+from django.db import DatabaseError, connection
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
 from . import session
@@ -328,6 +330,23 @@ def _initiate_payment(request, client, booking, result):
         return ''
 
     return payment.redirect_url
+
+
+def healthz(request):
+    """Health-check для контейнера і для деплою.
+
+    Перевіряє БД навмисно: застосунок, який піднявся, але не бачить Postgres,
+    для нас не «живий». Servio тут не чіпаємо — недоступність чужого API не
+    має валити наш деплой.
+    """
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute('SELECT 1')
+            cursor.fetchone()
+    except DatabaseError as exc:
+        logger.error('healthz: database unreachable: %s', exc)
+        return JsonResponse({'status': 'error', 'database': 'unreachable'}, status=503)
+    return JsonResponse({'status': 'ok', 'database': 'ok'})
 
 
 def done(request, pk):

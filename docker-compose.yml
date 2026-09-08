@@ -1,0 +1,56 @@
+# Змінні беруться з ./.env поруч із цим файлом (compose читає його сам).
+# `${VAR:?}` означає «без цієї змінної не стартувати» — краще впасти одразу,
+# ніж піднятися з дефолтним паролем.
+
+name: demo-booking
+
+services:
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-booking}
+      POSTGRES_USER: ${POSTGRES_USER:-booking}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-booking} -d ${POSTGRES_DB:-booking}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web:
+    # WEB_IMAGE дає Фазі 9 підставити образ із GHCR замість збірки на сервері.
+    image: ${WEB_IMAGE:-demo-booking:local}
+    build:
+      context: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SECRET_KEY: ${SECRET_KEY:?SECRET_KEY is required}
+      DEBUG: ${DEBUG:-False}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:?ALLOWED_HOSTS is required}
+      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS:-}
+      DATABASE_URL: postgres://${POSTGRES_USER:-booking}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-booking}
+      # За gunicorn перепідключатися до PG на кожен запит — марна робота.
+      CONN_MAX_AGE: ${CONN_MAX_AGE:-60}
+      CONN_HEALTH_CHECKS: ${CONN_HEALTH_CHECKS:-True}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?ADMIN_PASSWORD is required}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-}
+      SERVIO_API_BASE: ${SERVIO_API_BASE:-https://smartspot.servio.support/ServioQR/hms/api}
+      SERVIO_COMPANY_KEY: ${SERVIO_COMPANY_KEY:?SERVIO_COMPANY_KEY is required}
+      SERVIO_HOTEL_ID: ${SERVIO_HOTEL_ID:?SERVIO_HOTEL_ID is required}
+      SERVIO_TIMEOUT: ${SERVIO_TIMEOUT:-15}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      GUNICORN_WORKERS: ${GUNICORN_WORKERS:-3}
+      GUNICORN_TIMEOUT: ${GUNICORN_TIMEOUT:-120}
+    ports:
+      # ТЗ вимагає доступ на 8080
+      - "${WEB_PORT:-8080}:8000"
+
+volumes:
+  pgdata:

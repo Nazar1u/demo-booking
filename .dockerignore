@@ -1,0 +1,29 @@
+# Без цього в образ поїхали б .venv з абсолютними шляхами Windows і вся
+# історія git — сотні мегабайт сміття.
+
+.git/
+.github/
+.venv/
+__pycache__/
+*.py[oc]
+*.egg-info/
+
+# Локальні артефакти
+.env
+db.sqlite3
+db.sqlite3-journal
+staticfiles/
+media/
+*.log
+.pytest_cache/
+.ruff_cache/
+
+# Не потрібне рантайму
+docs/
+tests/
+README.md
+env.example
+docker-compose.yml
+Dockerfile
+.dockerignore
+.gitignore

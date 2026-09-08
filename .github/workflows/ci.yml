@@ -93,3 +93,60 @@ jobs:
 
       - name: Tests (PostgreSQL)
         run: uv run pytest -q
+
+  docker:
+    name: image builds and boots
+    runs-on: ubuntu-latest
+
+    # Локально образ не збирається (немає Docker), тому це єдине місце, де
+    # перевіряються Dockerfile, entrypoint, gunicorn і whitenoise.
+    env:
+      SECRET_KEY: ci-only-not-a-secret
+      ALLOWED_HOSTS: localhost,127.0.0.1
+      POSTGRES_PASSWORD: ci-password
+      ADMIN_PASSWORD: demo
+      SERVIO_COMPANY_KEY: CI-COMPANY-KEY
+      SERVIO_HOTEL_ID: '161'
+      WEB_IMAGE: demo-booking:ci
+      WEB_PORT: '8080'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t demo-booking:ci .
+
+      - name: Start the stack
+        run: docker compose up -d --no-build
+
+      # Найважливіший крок фази: доводить, що gunicorn під Python 3.14
+      # реально піднімається, а міграції й ensure_admin проходять з нуля.
+      - name: Wait until /healthz answers
+        run: |
+          for i in $(seq 1 40); do
+            if body=$(curl -fsS http://127.0.0.1:8080/healthz 2>/dev/null); then
+              echo "healthy: $body"
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "container never became healthy"
+          exit 1
+
+      - name: Smoke-check the pages
+        run: |
+          curl -fsS -o /dev/null -w 'search page  %{http_code}\n' http://127.0.0.1:8080/
+          curl -fsS -o /dev/null -w 'admin login  %{http_code}\n' http://127.0.0.1:8080/admin/login/
+
+      - name: Static files are served by whitenoise
+        run: |
+          curl -fsS -o /dev/null -w 'admin css  %{http_code}\n' \
+            http://127.0.0.1:8080/static/admin/css/base.css
+
+      - name: Container logs
+        if: always()
+        run: docker compose logs --no-color
+
+      - name: Tear down
+        if: always()
+        run: docker compose down -v

@@ -426,6 +426,34 @@ class Step4BookingTests(FlowTestCase):
         self.assertEqual(Booking.objects.count(), 1)
 
 
+class HealthzTests(TestCase):
+    """Health-check, на який спирається healthcheck контейнера і деплой."""
+
+    def test_ok_when_the_database_answers(self):
+        response = self.client.get(reverse('booking:healthz'))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {'status': 'ok', 'database': 'ok'})
+
+    def test_503_when_the_database_is_unreachable(self):
+        """Застосунок, який піднявся без Postgres, «живим» не вважається —
+        інакше деплой у Фазі 9 зеленів би наосліп."""
+        from django.db import DatabaseError
+
+        with mock.patch('booking.views.connection.cursor',
+                        side_effect=DatabaseError('no connection')):
+            response = self.client.get(reverse('booking:healthz'))
+
+        self.assertEqual(response.status_code, 503)
+        self.assertEqual(response.json()['database'], 'unreachable')
+
+    def test_does_not_touch_servio(self):
+        """Недоступність чужого API не має валити наш деплой."""
+        with mock.patch('booking.views.make_client') as make:
+            response = self.client.get(reverse('booking:healthz'))
+        self.assertEqual(response.status_code, 200)
+        make.assert_not_called()
+
+
 class DonePageTests(FlowTestCase):
     def _create(self):
         self.use(FakeClient(payment=PaymentResult(
