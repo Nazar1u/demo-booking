@@ -1,0 +1,18 @@
+{
+  "companyKey": "6DFA7A01-9E5E-4087-8073-1E0254672737",
+  "hotelID": 161,
+  "promoCode": null,
+  "dateArrival": "2027-03-10",
+  "dateDeparture": "2027-03-12",
+  "timeArrival": "14:00",
+  "timeDeparture": "12:00",
+  "rooms": [
+    {
+      "adults": 2,
+      "children": 0,
+      "childrenAges": [],
+      "index": 0
+    }
+  ],
+  "currency": 980
+}

@@ -1,0 +1,31 @@
+{
+  "isError": false,
+  "message": "Операція пройшла успішно",
+  "data": {
+    "displayName": "Готель Рівервуд, Мошни",
+    "hotelLocations": {},
+    "settings": {
+      "bookingModuleOnlyForRegistered": false,
+      "displayLanguageSelector": true,
+      "displayHotelSelector": true,
+      "displayHotelLocationSelector": false,
+      "displayThemeSelector": true,
+      "displayLoginButton": true,
+      "displayMinPrices": false
+    },
+    "referenceBook": {
+      "displayName": "",
+      "description": ""
+    },
+    "availableLanguages": [
+      "uk",
+      "en",
+      "ru",
+      "kk",
+      "lt",
+      "pl",
+      "es",
+      "uz"
+    ]
+  }
+}

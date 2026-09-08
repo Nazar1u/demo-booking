@@ -1,0 +1,1676 @@
+{
+  "isError": false,
+  "message": "Операція пройшла успішно",
+  "data": [
+    {
+      "id": 1373,
+      "apiID": 2,
+      "roomsCount": 9,
+      "hotelID": 161,
+      "name": "Номер Стандарт Дабл з видом на ліс",
+      "description": "<p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Просторий однокімнатний номер категорії Стандарт з великим двоспальним ліжком. Крізь панорамні вікна відкривається чудовий вигляд на сосновий ліс.</span><br><span style=\"white-space: pre-wrap;\">У вартість проживання включено:</span></p><ul><li value=\"1\"><span style=\"white-space: pre-wrap;\">Сніданок</span></li><li value=\"2\"><span style=\"white-space: pre-wrap;\">Відвідування SPA</span></li></ul>",
+      "images": [
+        {
+          "id": 20586,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/766a6125-c6c9-4c15-b606-f326be5b1083.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/766a6125-c6c9-4c15-b606-f326be5b1083-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/766a6125-c6c9-4c15-b606-f326be5b1083-resized.webp",
+          "position": 2
+        },
+        {
+          "id": 20587,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/d9eed9d7-5370-4113-abfd-a667c60ea636.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/d9eed9d7-5370-4113-abfd-a667c60ea636-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/d9eed9d7-5370-4113-abfd-a667c60ea636-resized.webp",
+          "position": 3
+        },
+        {
+          "id": 20588,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/8c95da54-b7ef-4411-b88b-844505a7901c.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/8c95da54-b7ef-4411-b88b-844505a7901c-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/8c95da54-b7ef-4411-b88b-844505a7901c-resized.webp",
+          "position": 0
+        },
+        {
+          "id": 20589,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/831edcae-f5ae-4e31-90ec-2ccf8d5ba141.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/831edcae-f5ae-4e31-90ec-2ccf8d5ba141-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/831edcae-f5ae-4e31-90ec-2ccf8d5ba141-resized.webp",
+          "position": 4
+        },
+        {
+          "id": 20590,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/57b386f7-20c4-4823-a8e6-54f01b3ddd9c.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/57b386f7-20c4-4823-a8e6-54f01b3ddd9c-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1373/57b386f7-20c4-4823-a8e6-54f01b3ddd9c-resized.webp",
+          "position": 1
+        }
+      ],
+      "contractConditions": [
+        {
+          "id": 107,
+          "apiID": 1,
+          "name": "Стандартний тариф",
+          "paidTypes": [
+            100,
+            300,
+            200
+          ],
+          "expiredDate": "9999-12-31T00:00:00",
+          "apiPriceListID": 2,
+          "totalPrice": 16200.0,
+          "totalRackRatePrice": 16200.0,
+          "currency": 980,
+          "services": [
+            {
+              "id": 136,
+              "apiID": 1,
+              "name": "Проживання / Accommodation",
+              "serviceSystemCode": "dwelling",
+              "priceDates": [
+                {
+                  "price": 8100.0,
+                  "rackRatePrice": 8100.0,
+                  "date": "2027-03-10T23:59:00"
+                },
+                {
+                  "price": 8100.0,
+                  "rackRatePrice": 8100.0,
+                  "date": "2027-03-11T23:59:00"
+                }
+              ]
+            }
+          ],
+          "saleRestrictions": {
+            "closedToSale": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "closedToArrive": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "earlyReservation": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "minStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "maxStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "minPay": {
+              "days": 2,
+              "message": "",
+              "minPayPaymentRules": [
+                {
+                  "timeFromArriveDate": 60,
+                  "timeForPayment": 1200
+                }
+              ]
+            },
+            "percentageMinPay": {
+              "percentage": 0.0,
+              "message": ""
+            }
+          },
+          "useDisplayRestrictions": false,
+          "isVisible": true,
+          "position": 0
+        }
+      ],
+      "featureCategories": [],
+      "freeRoomsCount": 9,
+      "mainPlacesCount": 2,
+      "nearestDateToReservation": "2027-03-10T00:00:00",
+      "isSaleBeds": false,
+      "armchairBedCount": 0,
+      "doubleBedCount": 0,
+      "extraBedCount": 1,
+      "singleBedCount": 0,
+      "sofaCount": 0,
+      "twinBedCount": 0,
+      "twinDoubleBedCount": 0,
+      "hasBath": false,
+      "hasShower": false,
+      "hasBathOrShower": false,
+      "hasSanNode": false,
+      "isVisible": true,
+      "position": 0
+    },
+    {
+      "id": 1374,
+      "apiID": 3,
+      "roomsCount": 9,
+      "hotelID": 161,
+      "name": "Номер Стандарт Дабл з видом на озеро",
+      "description": "<p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Просторий однокімнатний номер категорії Стандарт з великим двоспальним ліжком. Крізь панорамні вікна відкривається чудовий вигляд на озеро, ландшафтний парк та мост – арт обʼєкт.</span><br><span style=\"white-space: pre-wrap;\">У вартість проживання включено:</span></p><ul><li value=\"1\"><span style=\"white-space: pre-wrap;\">Сніданок</span></li><li value=\"2\"><span style=\"white-space: pre-wrap;\">Відвідування SPA</span></li></ul>",
+      "images": [
+        {
+          "id": 20591,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/cd2c7d04-65a4-4433-986e-b56db7b047d9.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/cd2c7d04-65a4-4433-986e-b56db7b047d9-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/cd2c7d04-65a4-4433-986e-b56db7b047d9-resized.webp",
+          "position": 3
+        },
+        {
+          "id": 20592,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/43c36305-4136-4684-a63e-a42eac9130ca.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/43c36305-4136-4684-a63e-a42eac9130ca-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/43c36305-4136-4684-a63e-a42eac9130ca-resized.webp",
+          "position": 6
+        },
+        {
+          "id": 20593,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/f9704fca-cdc8-407a-9c4c-5f1d98968edd.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/f9704fca-cdc8-407a-9c4c-5f1d98968edd-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/f9704fca-cdc8-407a-9c4c-5f1d98968edd-resized.webp",
+          "position": 5
+        },
+        {
+          "id": 20594,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/1d0ca9df-fe77-4466-bb68-27a69bed8379.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/1d0ca9df-fe77-4466-bb68-27a69bed8379-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/1d0ca9df-fe77-4466-bb68-27a69bed8379-resized.webp",
+          "position": 2
+        },
+        {
+          "id": 20595,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/54ab627b-9628-4c45-a0a1-7f93a1cb1779.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/54ab627b-9628-4c45-a0a1-7f93a1cb1779-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/54ab627b-9628-4c45-a0a1-7f93a1cb1779-resized.webp",
+          "position": 4
+        },
+        {
+          "id": 20596,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/bcf104d0-14db-4b18-859c-be4dc4d1fda1.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/bcf104d0-14db-4b18-859c-be4dc4d1fda1-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/bcf104d0-14db-4b18-859c-be4dc4d1fda1-resized.webp",
+          "position": 0
+        },
+        {
+          "id": 20597,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/5f96174f-280a-47ad-9f23-258e91a43b2e.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/5f96174f-280a-47ad-9f23-258e91a43b2e-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1374/5f96174f-280a-47ad-9f23-258e91a43b2e-resized.webp",
+          "position": 1
+        }
+      ],
+      "contractConditions": [
+        {
+          "id": 107,
+          "apiID": 1,
+          "name": "Стандартний тариф",
+          "paidTypes": [
+            100,
+            300,
+            200
+          ],
+          "expiredDate": "9999-12-31T00:00:00",
+          "apiPriceListID": 2,
+          "totalPrice": 16200.0,
+          "totalRackRatePrice": 16200.0,
+          "currency": 980,
+          "services": [
+            {
+              "id": 136,
+              "apiID": 1,
+              "name": "Проживання / Accommodation",
+              "serviceSystemCode": "dwelling",
+              "priceDates": [
+                {
+                  "price": 8100.0,
+                  "rackRatePrice": 8100.0,
+                  "date": "2027-03-10T23:59:00"
+                },
+                {
+                  "price": 8100.0,
+                  "rackRatePrice": 8100.0,
+                  "date": "2027-03-11T23:59:00"
+                }
+              ]
+            }
+          ],
+          "saleRestrictions": {
+            "closedToSale": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "closedToArrive": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "earlyReservation": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "minStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "maxStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "minPay": {
+              "days": 2,
+              "message": "",
+              "minPayPaymentRules": [
+                {
+                  "timeFromArriveDate": 60,
+                  "timeForPayment": 1200
+                }
+              ]
+            },
+            "percentageMinPay": {
+              "percentage": 0.0,
+              "message": ""
+            }
+          },
+          "useDisplayRestrictions": false,
+          "isVisible": true,
+          "position": 0
+        }
+      ],
+      "featureCategories": [],
+      "freeRoomsCount": 9,
+      "mainPlacesCount": 2,
+      "nearestDateToReservation": "2027-03-10T00:00:00",
+      "isSaleBeds": false,
+      "armchairBedCount": 0,
+      "doubleBedCount": 0,
+      "extraBedCount": 1,
+      "singleBedCount": 0,
+      "sofaCount": 0,
+      "twinBedCount": 0,
+      "twinDoubleBedCount": 0,
+      "hasBath": false,
+      "hasShower": false,
+      "hasBathOrShower": false,
+      "hasSanNode": false,
+      "isVisible": true,
+      "position": 0
+    },
+    {
+      "id": 1375,
+      "apiID": 4,
+      "roomsCount": 7,
+      "hotelID": 161,
+      "name": "Номер Стандарт Твін з видом на ліс",
+      "description": "<p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Однокімнатний номер з двома окремими ліжками (120*200 см).</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Номер оснащено:</span><br><span style=\"white-space: pre-wrap;\">– плазмовим телевізором</span><br><span style=\"white-space: pre-wrap;\">– холодильником з міні-баром</span><br><span style=\"white-space: pre-wrap;\">– телефоном</span><br><span style=\"white-space: pre-wrap;\">– ванною кімнатою з душевою кабіною та теплою підлогою</span><br><span style=\"white-space: pre-wrap;\">– феном</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">- чайником та кавоваркою</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Також безкоштовно в номері є косметичні набори для індивідуального використання, халати та одноразове кімнатне взуття, питна вода та чай.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Є можливість встановлювати додаткове спальне місце для дітей.</span><br><span style=\"white-space: pre-wrap;\">Працює рум-сервіс. Доступні послуги чистки одягу.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">У вартість поживання входить сніданок та відвідування SPA.</span></p>",
+      "images": [
+        {
+          "id": 20598,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/e242dfe6-a316-438e-b62f-53d20d746e11.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/e242dfe6-a316-438e-b62f-53d20d746e11-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/e242dfe6-a316-438e-b62f-53d20d746e11-resized.webp",
+          "position": 0
+        },
+        {
+          "id": 20599,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/5564affc-db8d-4f47-93db-b9fca3a76d82.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/5564affc-db8d-4f47-93db-b9fca3a76d82-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/5564affc-db8d-4f47-93db-b9fca3a76d82-resized.webp",
+          "position": 1
+        },
+        {
+          "id": 20600,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/6cd802b4-590d-4c1e-bebe-f4447a5dbf97.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/6cd802b4-590d-4c1e-bebe-f4447a5dbf97-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/6cd802b4-590d-4c1e-bebe-f4447a5dbf97-resized.webp",
+          "position": 3
+        },
+        {
+          "id": 20601,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/99613adb-1788-4140-bb99-df17a487b39e.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/99613adb-1788-4140-bb99-df17a487b39e-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/99613adb-1788-4140-bb99-df17a487b39e-resized.webp",
+          "position": 5
+        },
+        {
+          "id": 20602,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/b4be3ebd-405b-4a19-9a80-86abb87b7c19.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/b4be3ebd-405b-4a19-9a80-86abb87b7c19-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/b4be3ebd-405b-4a19-9a80-86abb87b7c19-resized.webp",
+          "position": 2
+        },
+        {
+          "id": 20603,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/5d8dfe6a-ff06-44bf-8838-3129563e2101.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/5d8dfe6a-ff06-44bf-8838-3129563e2101-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1375/5d8dfe6a-ff06-44bf-8838-3129563e2101-resized.webp",
+          "position": 4
+        }
+      ],
+      "contractConditions": [
+        {
+          "id": 107,
+          "apiID": 1,
+          "name": "Стандартний тариф",
+          "paidTypes": [
+            100,
+            300,
+            200
+          ],
+          "expiredDate": "9999-12-31T00:00:00",
+          "apiPriceListID": 2,
+          "totalPrice": 16200.0,
+          "totalRackRatePrice": 16200.0,
+          "currency": 980,
+          "services": [
+            {
+              "id": 136,
+              "apiID": 1,
+              "name": "Проживання / Accommodation",
+              "serviceSystemCode": "dwelling",
+              "priceDates": [
+                {
+                  "price": 8100.0,
+                  "rackRatePrice": 8100.0,
+                  "date": "2027-03-10T23:59:00"
+                },
+                {
+                  "price": 8100.0,
+                  "rackRatePrice": 8100.0,
+                  "date": "2027-03-11T23:59:00"
+                }
+              ]
+            }
+          ],
+          "saleRestrictions": {
+            "closedToSale": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "closedToArrive": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "earlyReservation": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "minStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "maxStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "minPay": {
+              "days": 2,
+              "message": "",
+              "minPayPaymentRules": [
+                {
+                  "timeFromArriveDate": 60,
+                  "timeForPayment": 1200
+                }
+              ]
+            },
+            "percentageMinPay": {
+              "percentage": 0.0,
+              "message": ""
+            }
+          },
+          "useDisplayRestrictions": false,
+          "isVisible": true,
+          "position": 0
+        }
+      ],
+      "featureCategories": [],
+      "freeRoomsCount": 7,
+      "mainPlacesCount": 2,
+      "nearestDateToReservation": "2027-03-10T00:00:00",
+      "isSaleBeds": false,
+      "armchairBedCount": 0,
+      "doubleBedCount": 0,
+      "extraBedCount": 1,
+      "singleBedCount": 0,
+      "sofaCount": 0,
+      "twinBedCount": 0,
+      "twinDoubleBedCount": 0,
+      "hasBath": false,
+      "hasShower": false,
+      "hasBathOrShower": false,
+      "hasSanNode": false,
+      "isVisible": true,
+      "position": 0
+    },
+    {
+      "id": 1376,
+      "apiID": 5,
+      "roomsCount": 7,
+      "hotelID": 161,
+      "name": "Номер Стандарт Твін з видом на озеро",
+      "description": "<p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Однокімнатний номер з двома окремими ліжками (120*200 см).</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Номер оснащено:</span><br><span style=\"white-space: pre-wrap;\">– плазмовим телевізором</span><br><span style=\"white-space: pre-wrap;\">– холодильником з міні-баром</span><br><span style=\"white-space: pre-wrap;\">– телефоном</span><br><span style=\"white-space: pre-wrap;\">– ванною кімнатою з душевою кабіною та теплою підлогою</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">-&nbsp; чайником та кововаркою</span><br><span style=\"white-space: pre-wrap;\">– феном</span></p><p style=\"text-align: left;\"><br></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Також безкоштовно в номері є косметичні набори для індивідуального використання, халати та одноразове кімнатне взуття, питна вода та чай.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Є можливість встановлювати додаткове спальне місце для дітей.</span><br><span style=\"white-space: pre-wrap;\">Працює рум-сервіс. Доступні послуги чистки одягу.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">У вартість номеру входить сніданок та відвідування SPA.</span></p>",
+      "images": [
+        {
+          "id": 20604,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/afdc7ec8-7f6b-4cf3-a087-1d27c4e8fe79.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/afdc7ec8-7f6b-4cf3-a087-1d27c4e8fe79-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/afdc7ec8-7f6b-4cf3-a087-1d27c4e8fe79-resized.webp",
+          "position": 2
+        },
+        {
+          "id": 20605,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/e27493fe-9468-4eac-84dd-e7730ba66a9a.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/e27493fe-9468-4eac-84dd-e7730ba66a9a-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/e27493fe-9468-4eac-84dd-e7730ba66a9a-resized.webp",
+          "position": 0
+        },
+        {
+          "id": 20606,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/e202b574-5bca-4abb-b0e9-a28135ff6c50.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/e202b574-5bca-4abb-b0e9-a28135ff6c50-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/e202b574-5bca-4abb-b0e9-a28135ff6c50-resized.webp",
+          "position": 6
+        },
+        {
+          "id": 20607,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/cf5c393e-1468-4e52-a127-74d1c6296d85.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/cf5c393e-1468-4e52-a127-74d1c6296d85-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/cf5c393e-1468-4e52-a127-74d1c6296d85-resized.webp",
+          "position": 3
+        },
+        {
+          "id": 20608,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/a3ed874d-c8bd-4cbe-94c3-42dbca3617ea.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/a3ed874d-c8bd-4cbe-94c3-42dbca3617ea-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/a3ed874d-c8bd-4cbe-94c3-42dbca3617ea-resized.webp",
+          "position": 4
+        },
+        {
+          "id": 20609,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/402d11f3-af31-4027-850c-6db805637bed.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/402d11f3-af31-4027-850c-6db805637bed-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/402d11f3-af31-4027-850c-6db805637bed-resized.webp",
+          "position": 5
+        },
+        {
+          "id": 20610,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/ad06f4fd-f335-44e5-8f07-ea3c284758c5.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/ad06f4fd-f335-44e5-8f07-ea3c284758c5-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1376/ad06f4fd-f335-44e5-8f07-ea3c284758c5-resized.webp",
+          "position": 1
+        }
+      ],
+      "contractConditions": [
+        {
+          "id": 107,
+          "apiID": 1,
+          "name": "Стандартний тариф",
+          "paidTypes": [
+            100,
+            300,
+            200
+          ],
+          "expiredDate": "9999-12-31T00:00:00",
+          "apiPriceListID": 2,
+          "totalPrice": 16200.0,
+          "totalRackRatePrice": 16200.0,
+          "currency": 980,
+          "services": [
+            {
+              "id": 136,
+              "apiID": 1,
+              "name": "Проживання / Accommodation",
+              "serviceSystemCode": "dwelling",
+              "priceDates": [
+                {
+                  "price": 8100.0,
+                  "rackRatePrice": 8100.0,
+                  "date": "2027-03-10T23:59:00"
+                },
+                {
+                  "price": 8100.0,
+                  "rackRatePrice": 8100.0,
+                  "date": "2027-03-11T23:59:00"
+                }
+              ]
+            }
+          ],
+          "saleRestrictions": {
+            "closedToSale": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "closedToArrive": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "earlyReservation": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "minStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "maxStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "minPay": {
+              "days": 2,
+              "message": "",
+              "minPayPaymentRules": [
+                {
+                  "timeFromArriveDate": 60,
+                  "timeForPayment": 1200
+                }
+              ]
+            },
+            "percentageMinPay": {
+              "percentage": 0.0,
+              "message": ""
+            }
+          },
+          "useDisplayRestrictions": false,
+          "isVisible": true,
+          "position": 0
+        }
+      ],
+      "featureCategories": [],
+      "freeRoomsCount": 7,
+      "mainPlacesCount": 2,
+      "nearestDateToReservation": "2027-03-10T00:00:00",
+      "isSaleBeds": false,
+      "armchairBedCount": 0,
+      "doubleBedCount": 0,
+      "extraBedCount": 1,
+      "singleBedCount": 0,
+      "sofaCount": 0,
+      "twinBedCount": 0,
+      "twinDoubleBedCount": 0,
+      "hasBath": false,
+      "hasShower": false,
+      "hasBathOrShower": false,
+      "hasSanNode": false,
+      "isVisible": true,
+      "position": 0
+    },
+    {
+      "id": 1377,
+      "apiID": 6,
+      "roomsCount": 2,
+      "hotelID": 161,
+      "name": "Номер Сімейний",
+      "description": "<p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Просторий однокімнатний номер з панорамними вікнами і видом на ліс. Сімʼя може комфортно розміститись на великому двоспальному ліжку та розкладному двоспальному дивані.</span><br><span style=\"white-space: pre-wrap;\">У вартість проживання включено:</span></p><ul><li value=\"1\"><span style=\"white-space: pre-wrap;\">Сніданок</span></li><li value=\"2\"><span style=\"white-space: pre-wrap;\">Відвідування SPA</span></li></ul>",
+      "images": [
+        {
+          "id": 20580,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/af6a1266-2271-476e-ab34-e7ef45f1d992.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/af6a1266-2271-476e-ab34-e7ef45f1d992-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/af6a1266-2271-476e-ab34-e7ef45f1d992-resized.webp",
+          "position": 2
+        },
+        {
+          "id": 20581,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/852490c3-8d64-45e9-86cc-243ab3761f27.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/852490c3-8d64-45e9-86cc-243ab3761f27-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/852490c3-8d64-45e9-86cc-243ab3761f27-resized.webp",
+          "position": 5
+        },
+        {
+          "id": 20582,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/38b6a663-da8c-4fac-9b52-c0950e55f64c.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/38b6a663-da8c-4fac-9b52-c0950e55f64c-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/38b6a663-da8c-4fac-9b52-c0950e55f64c-resized.webp",
+          "position": 0
+        },
+        {
+          "id": 20583,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/3fbeed17-8026-46f2-9d7d-ceaf5aa032b5.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/3fbeed17-8026-46f2-9d7d-ceaf5aa032b5-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/3fbeed17-8026-46f2-9d7d-ceaf5aa032b5-resized.webp",
+          "position": 4
+        },
+        {
+          "id": 20584,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/fc645c77-0924-4d45-8e39-27a3ba7f8233.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/fc645c77-0924-4d45-8e39-27a3ba7f8233-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/fc645c77-0924-4d45-8e39-27a3ba7f8233-resized.webp",
+          "position": 1
+        },
+        {
+          "id": 20585,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/6de6e7ef-5398-4bd9-ac7e-f9165afc7cf9.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/6de6e7ef-5398-4bd9-ac7e-f9165afc7cf9-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1377/6de6e7ef-5398-4bd9-ac7e-f9165afc7cf9-resized.webp",
+          "position": 3
+        }
+      ],
+      "contractConditions": [
+        {
+          "id": 107,
+          "apiID": 1,
+          "name": "Стандартний тариф",
+          "paidTypes": [
+            100,
+            300,
+            200
+          ],
+          "expiredDate": "9999-12-31T00:00:00",
+          "apiPriceListID": 2,
+          "totalPrice": 20200.0,
+          "totalRackRatePrice": 20200.0,
+          "currency": 980,
+          "services": [
+            {
+              "id": 136,
+              "apiID": 1,
+              "name": "Проживання / Accommodation",
+              "serviceSystemCode": "dwelling",
+              "priceDates": [
+                {
+                  "price": 10100.0,
+                  "rackRatePrice": 10100.0,
+                  "date": "2027-03-10T23:59:00"
+                },
+                {
+                  "price": 10100.0,
+                  "rackRatePrice": 10100.0,
+                  "date": "2027-03-11T23:59:00"
+                }
+              ]
+            }
+          ],
+          "saleRestrictions": {
+            "closedToSale": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "closedToArrive": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "earlyReservation": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "minStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "maxStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "minPay": {
+              "days": 2,
+              "message": "",
+              "minPayPaymentRules": [
+                {
+                  "timeFromArriveDate": 60,
+                  "timeForPayment": 1200
+                }
+              ]
+            },
+            "percentageMinPay": {
+              "percentage": 0.0,
+              "message": ""
+            }
+          },
+          "useDisplayRestrictions": false,
+          "isVisible": true,
+          "position": 0
+        }
+      ],
+      "featureCategories": [],
+      "freeRoomsCount": 2,
+      "mainPlacesCount": 3,
+      "nearestDateToReservation": "2027-03-10T00:00:00",
+      "isSaleBeds": false,
+      "armchairBedCount": 0,
+      "doubleBedCount": 0,
+      "extraBedCount": 1,
+      "singleBedCount": 0,
+      "sofaCount": 0,
+      "twinBedCount": 0,
+      "twinDoubleBedCount": 0,
+      "hasBath": false,
+      "hasShower": false,
+      "hasBathOrShower": false,
+      "hasSanNode": false,
+      "isVisible": true,
+      "position": 0
+    },
+    {
+      "id": 1378,
+      "apiID": 7,
+      "roomsCount": 2,
+      "hotelID": 161,
+      "name": "Номер Люкс",
+      "description": "<p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Просторий двокімнатний номер з видом на озеро та ландшафтний парк дозволяє відпочити від міської метушні всією родиною.</span><br><span style=\"white-space: pre-wrap;\">У вартість проживання включено:</span></p><ul><li value=\"1\"><span style=\"white-space: pre-wrap;\">Сніданок</span></li><li value=\"2\"><span style=\"white-space: pre-wrap;\">Відвідування SPA</span></li></ul>",
+      "images": [
+        {
+          "id": 20574,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/0130305c-1250-4c82-be3b-549118d7f75b.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/0130305c-1250-4c82-be3b-549118d7f75b-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/0130305c-1250-4c82-be3b-549118d7f75b-resized.webp",
+          "position": 0
+        },
+        {
+          "id": 20575,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/3f98c1aa-efbf-4499-b90e-430187b9b217.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/3f98c1aa-efbf-4499-b90e-430187b9b217-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/3f98c1aa-efbf-4499-b90e-430187b9b217-resized.webp",
+          "position": 4
+        },
+        {
+          "id": 20576,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/7a376a88-ee9f-42fb-8fec-2bee50ffc594.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/7a376a88-ee9f-42fb-8fec-2bee50ffc594-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/7a376a88-ee9f-42fb-8fec-2bee50ffc594-resized.webp",
+          "position": 5
+        },
+        {
+          "id": 20577,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/93c10762-5bd4-443a-954b-80c98bad0ab5.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/93c10762-5bd4-443a-954b-80c98bad0ab5-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/93c10762-5bd4-443a-954b-80c98bad0ab5-resized.webp",
+          "position": 1
+        },
+        {
+          "id": 20578,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/f552ed6d-b31b-4665-a485-1a1e02aab21c.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/f552ed6d-b31b-4665-a485-1a1e02aab21c-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/f552ed6d-b31b-4665-a485-1a1e02aab21c-resized.webp",
+          "position": 2
+        },
+        {
+          "id": 20579,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/cb726026-c476-464d-8c7f-b78470d07433.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/cb726026-c476-464d-8c7f-b78470d07433-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1378/cb726026-c476-464d-8c7f-b78470d07433-resized.webp",
+          "position": 3
+        }
+      ],
+      "contractConditions": [
+        {
+          "id": 107,
+          "apiID": 1,
+          "name": "Стандартний тариф",
+          "paidTypes": [
+            100,
+            300,
+            200
+          ],
+          "expiredDate": "9999-12-31T00:00:00",
+          "apiPriceListID": 2,
+          "totalPrice": 19700.0,
+          "totalRackRatePrice": 19700.0,
+          "currency": 980,
+          "services": [
+            {
+              "id": 136,
+              "apiID": 1,
+              "name": "Проживання / Accommodation",
+              "serviceSystemCode": "dwelling",
+              "priceDates": [
+                {
+                  "price": 9850.0,
+                  "rackRatePrice": 9850.0,
+                  "date": "2027-03-10T23:59:00"
+                },
+                {
+                  "price": 9850.0,
+                  "rackRatePrice": 9850.0,
+                  "date": "2027-03-11T23:59:00"
+                }
+              ]
+            }
+          ],
+          "saleRestrictions": {
+            "closedToSale": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "closedToArrive": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "earlyReservation": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "minStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "maxStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "minPay": {
+              "days": 2,
+              "message": "",
+              "minPayPaymentRules": [
+                {
+                  "timeFromArriveDate": 60,
+                  "timeForPayment": 1200
+                }
+              ]
+            },
+            "percentageMinPay": {
+              "percentage": 0.0,
+              "message": ""
+            }
+          },
+          "useDisplayRestrictions": false,
+          "isVisible": true,
+          "position": 0
+        }
+      ],
+      "featureCategories": [],
+      "freeRoomsCount": 2,
+      "mainPlacesCount": 2,
+      "nearestDateToReservation": "2027-03-10T00:00:00",
+      "isSaleBeds": false,
+      "armchairBedCount": 0,
+      "doubleBedCount": 0,
+      "extraBedCount": 2,
+      "singleBedCount": 0,
+      "sofaCount": 0,
+      "twinBedCount": 0,
+      "twinDoubleBedCount": 0,
+      "hasBath": false,
+      "hasShower": false,
+      "hasBathOrShower": false,
+      "hasSanNode": false,
+      "isVisible": true,
+      "position": 0
+    },
+    {
+      "id": 1379,
+      "apiID": 8,
+      "roomsCount": 3,
+      "hotelID": 161,
+      "name": "Шале для 2х осіб з 1 спальнею",
+      "description": "<p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Стримана архітектура та максимальна інтеграція в природне середовище.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Сучасний інтерʼєр, панорамне засклення та оздоблення натуральним деревом створюють просту, невимушену та водночас спокійну і затишну атмосферу.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">В шале буде зручно удвох. Є можливість встановлення додаткового спального місця для дитини.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">У вартість проживання включено:</span></p><ul><li value=\"1\"><span style=\"white-space: pre-wrap;\">Сніданок</span></li><li value=\"2\"><span style=\"white-space: pre-wrap;\">Відвідування SPA</span></li></ul>",
+      "images": [
+        {
+          "id": 20619,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/3f32ffe0-a03b-4ce8-88f3-c82cecfabed0.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/3f32ffe0-a03b-4ce8-88f3-c82cecfabed0-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/3f32ffe0-a03b-4ce8-88f3-c82cecfabed0-resized.webp",
+          "position": 2
+        },
+        {
+          "id": 20620,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/407adb9d-cc25-4a24-80e0-5fff0fa51a3a.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/407adb9d-cc25-4a24-80e0-5fff0fa51a3a-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/407adb9d-cc25-4a24-80e0-5fff0fa51a3a-resized.webp",
+          "position": 0
+        },
+        {
+          "id": 20621,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/601c57d1-840e-4159-a31f-b29a20eb1ac5.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/601c57d1-840e-4159-a31f-b29a20eb1ac5-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/601c57d1-840e-4159-a31f-b29a20eb1ac5-resized.webp",
+          "position": 3
+        },
+        {
+          "id": 20622,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/2f97321d-84ac-464e-8032-8dc61dbd84b4.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/2f97321d-84ac-464e-8032-8dc61dbd84b4-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/2f97321d-84ac-464e-8032-8dc61dbd84b4-resized.webp",
+          "position": 1
+        },
+        {
+          "id": 20623,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/0c200739-31ae-4818-8a2b-3b496944d4fe.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/0c200739-31ae-4818-8a2b-3b496944d4fe-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1379/0c200739-31ae-4818-8a2b-3b496944d4fe-resized.webp",
+          "position": 4
+        }
+      ],
+      "contractConditions": [
+        {
+          "id": 107,
+          "apiID": 1,
+          "name": "Стандартний тариф",
+          "paidTypes": [
+            100,
+            300,
+            200
+          ],
+          "expiredDate": "9999-12-31T00:00:00",
+          "apiPriceListID": 2,
+          "totalPrice": 20400.0,
+          "totalRackRatePrice": 20400.0,
+          "currency": 980,
+          "services": [
+            {
+              "id": 136,
+              "apiID": 1,
+              "name": "Проживання / Accommodation",
+              "serviceSystemCode": "dwelling",
+              "priceDates": [
+                {
+                  "price": 10200.0,
+                  "rackRatePrice": 10200.0,
+                  "date": "2027-03-10T23:59:00"
+                },
+                {
+                  "price": 10200.0,
+                  "rackRatePrice": 10200.0,
+                  "date": "2027-03-11T23:59:00"
+                }
+              ]
+            }
+          ],
+          "saleRestrictions": {
+            "closedToSale": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "closedToArrive": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "earlyReservation": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "minStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "maxStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "minPay": {
+              "days": 2,
+              "message": "",
+              "minPayPaymentRules": [
+                {
+                  "timeFromArriveDate": 60,
+                  "timeForPayment": 1200
+                }
+              ]
+            },
+            "percentageMinPay": {
+              "percentage": 0.0,
+              "message": ""
+            }
+          },
+          "useDisplayRestrictions": false,
+          "isVisible": true,
+          "position": 0
+        }
+      ],
+      "featureCategories": [],
+      "freeRoomsCount": 3,
+      "mainPlacesCount": 2,
+      "nearestDateToReservation": "2027-03-10T00:00:00",
+      "isSaleBeds": false,
+      "armchairBedCount": 0,
+      "doubleBedCount": 0,
+      "extraBedCount": 0,
+      "singleBedCount": 0,
+      "sofaCount": 0,
+      "twinBedCount": 0,
+      "twinDoubleBedCount": 0,
+      "hasBath": false,
+      "hasShower": false,
+      "hasBathOrShower": false,
+      "hasSanNode": false,
+      "isVisible": true,
+      "position": 0
+    },
+    {
+      "id": 1380,
+      "apiID": 9,
+      "roomsCount": 2,
+      "hotelID": 161,
+      "name": "Шале на 3 спальні з кухнею",
+      "description": "<p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Шале для 6 гостей з власною кухнею, вітальнєю, трьома спальними кімнатами та трьома санвузлами – найбільше шале в Riverwood relax park, але не менш комфортне та затишне.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Ідеальний будинок для великої сімʼї чи компанії з власною терасою. Має 3 спальні кімнати – одна з ліжком king size, дві другі з ліжками з 2 односпальними ліжками-трансформерами, що перетворюються в одне двоспальне за потреби.</span><br><span style=\"white-space: pre-wrap;\">У просторій вітальні є великий диван, стіл на 6 гостей та кухня.</span><br><span style=\"white-space: pre-wrap;\">Всі кімнати оснащено кондиціонерами та smart TV.</span><br><span style=\"white-space: pre-wrap;\">В будинку знаходиться також пральна машина.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Сніданок та відвідування SPA&nbsp;включено у вартість проживання.</span></p>",
+      "images": [
+        {
+          "id": 20611,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/334f358f-69a0-4c63-bc0e-6a6466abdd08.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/334f358f-69a0-4c63-bc0e-6a6466abdd08-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/334f358f-69a0-4c63-bc0e-6a6466abdd08-resized.webp",
+          "position": 0
+        },
+        {
+          "id": 20612,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/0f6e5a95-1191-4fbd-96af-eadbe477966c.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/0f6e5a95-1191-4fbd-96af-eadbe477966c-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/0f6e5a95-1191-4fbd-96af-eadbe477966c-resized.webp",
+          "position": 3
+        },
+        {
+          "id": 20613,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/449c6bb2-0fab-426b-b6bd-f98d1a110d0f.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/449c6bb2-0fab-426b-b6bd-f98d1a110d0f-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/449c6bb2-0fab-426b-b6bd-f98d1a110d0f-resized.webp",
+          "position": 2
+        },
+        {
+          "id": 20614,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/6389682e-c3b6-4e3a-bd0b-9b97ad590711.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/6389682e-c3b6-4e3a-bd0b-9b97ad590711-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/6389682e-c3b6-4e3a-bd0b-9b97ad590711-resized.webp",
+          "position": 4
+        },
+        {
+          "id": 20615,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/804e6d91-7ceb-40bd-9b13-f5ac7aea4d7d.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/804e6d91-7ceb-40bd-9b13-f5ac7aea4d7d-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/804e6d91-7ceb-40bd-9b13-f5ac7aea4d7d-resized.webp",
+          "position": 1
+        },
+        {
+          "id": 20616,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/74b51830-5a10-4f3f-b0ad-f2dcaaaf2e1b.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/74b51830-5a10-4f3f-b0ad-f2dcaaaf2e1b-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/74b51830-5a10-4f3f-b0ad-f2dcaaaf2e1b-resized.webp",
+          "position": 5
+        },
+        {
+          "id": 20617,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/7db8f539-6e3d-4dab-8380-f9fbda1acfc3.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/7db8f539-6e3d-4dab-8380-f9fbda1acfc3-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/7db8f539-6e3d-4dab-8380-f9fbda1acfc3-resized.webp",
+          "position": 7
+        },
+        {
+          "id": 20618,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/29b2808e-5bad-4aa4-9209-3f47d8dd9fe2.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/29b2808e-5bad-4aa4-9209-3f47d8dd9fe2-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1380/29b2808e-5bad-4aa4-9209-3f47d8dd9fe2-resized.webp",
+          "position": 6
+        }
+      ],
+      "contractConditions": [
+        {
+          "id": 107,
+          "apiID": 1,
+          "name": "Стандартний тариф",
+          "paidTypes": [
+            100,
+            300,
+            200
+          ],
+          "expiredDate": "9999-12-31T00:00:00",
+          "apiPriceListID": 2,
+          "totalPrice": 47200.0,
+          "totalRackRatePrice": 47200.0,
+          "currency": 980,
+          "services": [
+            {
+              "id": 136,
+              "apiID": 1,
+              "name": "Проживання / Accommodation",
+              "serviceSystemCode": "dwelling",
+              "priceDates": [
+                {
+                  "price": 23600.0,
+                  "rackRatePrice": 23600.0,
+                  "date": "2027-03-10T23:59:00"
+                },
+                {
+                  "price": 23600.0,
+                  "rackRatePrice": 23600.0,
+                  "date": "2027-03-11T23:59:00"
+                }
+              ]
+            }
+          ],
+          "saleRestrictions": {
+            "closedToSale": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "closedToArrive": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "earlyReservation": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "minStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "maxStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "minPay": {
+              "days": 2,
+              "message": "",
+              "minPayPaymentRules": [
+                {
+                  "timeFromArriveDate": 60,
+                  "timeForPayment": 1200
+                }
+              ]
+            },
+            "percentageMinPay": {
+              "percentage": 0.0,
+              "message": ""
+            }
+          },
+          "useDisplayRestrictions": false,
+          "isVisible": true,
+          "position": 0
+        }
+      ],
+      "featureCategories": [],
+      "freeRoomsCount": 2,
+      "mainPlacesCount": 6,
+      "nearestDateToReservation": "2027-03-10T00:00:00",
+      "isSaleBeds": false,
+      "armchairBedCount": 0,
+      "doubleBedCount": 0,
+      "extraBedCount": 2,
+      "singleBedCount": 0,
+      "sofaCount": 0,
+      "twinBedCount": 0,
+      "twinDoubleBedCount": 0,
+      "hasBath": false,
+      "hasShower": false,
+      "hasBathOrShower": false,
+      "hasSanNode": false,
+      "isVisible": true,
+      "position": 0
+    },
+    {
+      "id": 1381,
+      "apiID": 10,
+      "roomsCount": 3,
+      "hotelID": 161,
+      "name": "Шале для 4х осіб з 2 спальними кімнатами",
+      "description": "<p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Стильне і комфотне шале для сімʼї з двома дітьми або для компанії з 4 гостей.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Має дві спальні кімнати,&nbsp;в кожній з яких два окремих ліжка-трансформери, що легко перетворюються в одне за потреби.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">У вартість проживання включено:</span></p><ul><li value=\"1\"><span style=\"white-space: pre-wrap;\">Сніданок</span></li><li value=\"2\"><span style=\"white-space: pre-wrap;\">Відвідування SPA</span></li></ul>",
+      "images": [
+        {
+          "id": 20633,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/9a1b6fa8-859f-47f8-a7b2-0155f3180eb2.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/9a1b6fa8-859f-47f8-a7b2-0155f3180eb2-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/9a1b6fa8-859f-47f8-a7b2-0155f3180eb2-resized.webp",
+          "position": 3
+        },
+        {
+          "id": 20634,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/e138b370-04d4-4f4a-b5fd-20e6558560a4.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/e138b370-04d4-4f4a-b5fd-20e6558560a4-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/e138b370-04d4-4f4a-b5fd-20e6558560a4-resized.webp",
+          "position": 5
+        },
+        {
+          "id": 20635,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/46a4e272-c4c1-4b64-b276-291f4a2f9d94.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/46a4e272-c4c1-4b64-b276-291f4a2f9d94-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/46a4e272-c4c1-4b64-b276-291f4a2f9d94-resized.webp",
+          "position": 2
+        },
+        {
+          "id": 20636,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/e3b14556-8cd6-4e6d-9ef2-037faed9130c.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/e3b14556-8cd6-4e6d-9ef2-037faed9130c-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/e3b14556-8cd6-4e6d-9ef2-037faed9130c-resized.webp",
+          "position": 4
+        },
+        {
+          "id": 20637,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/db9466b4-511f-4f74-b79a-6114bd1f0535.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/db9466b4-511f-4f74-b79a-6114bd1f0535-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1381/db9466b4-511f-4f74-b79a-6114bd1f0535-resized.webp",
+          "position": 0
+        }
+      ],
+      "contractConditions": [
+        {
+          "id": 107,
+          "apiID": 1,
+          "name": "Стандартний тариф",
+          "paidTypes": [
+            100,
+            300,
+            200
+          ],
+          "expiredDate": "9999-12-31T00:00:00",
+          "apiPriceListID": 2,
+          "totalPrice": 31000.0,
+          "totalRackRatePrice": 31000.0,
+          "currency": 980,
+          "services": [
+            {
+              "id": 136,
+              "apiID": 1,
+              "name": "Проживання / Accommodation",
+              "serviceSystemCode": "dwelling",
+              "priceDates": [
+                {
+                  "price": 15500.0,
+                  "rackRatePrice": 15500.0,
+                  "date": "2027-03-10T23:59:00"
+                },
+                {
+                  "price": 15500.0,
+                  "rackRatePrice": 15500.0,
+                  "date": "2027-03-11T23:59:00"
+                }
+              ]
+            }
+          ],
+          "saleRestrictions": {
+            "closedToSale": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "closedToArrive": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "earlyReservation": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "minStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "maxStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "minPay": {
+              "days": 2,
+              "message": "",
+              "minPayPaymentRules": [
+                {
+                  "timeFromArriveDate": 60,
+                  "timeForPayment": 1200
+                }
+              ]
+            },
+            "percentageMinPay": {
+              "percentage": 0.0,
+              "message": ""
+            }
+          },
+          "useDisplayRestrictions": false,
+          "isVisible": true,
+          "position": 0
+        }
+      ],
+      "featureCategories": [],
+      "freeRoomsCount": 3,
+      "mainPlacesCount": 4,
+      "nearestDateToReservation": "2027-03-10T00:00:00",
+      "isSaleBeds": false,
+      "armchairBedCount": 0,
+      "doubleBedCount": 0,
+      "extraBedCount": 0,
+      "singleBedCount": 0,
+      "sofaCount": 0,
+      "twinBedCount": 0,
+      "twinDoubleBedCount": 0,
+      "hasBath": false,
+      "hasShower": false,
+      "hasBathOrShower": false,
+      "hasSanNode": false,
+      "isVisible": true,
+      "position": 0
+    },
+    {
+      "id": 1382,
+      "apiID": 11,
+      "roomsCount": 4,
+      "hotelID": 161,
+      "name": "Шале для 4х осіб з 2 спальними кімнатами та вітальнею",
+      "description": "<p dir=\"ltr\"><span style=\"white-space: pre-wrap;\">Сучасний інтерʼєр, натуральні текстурні матеріали та&nbsp; розумне планування.</span></p><p dir=\"ltr\"><span style=\"white-space: pre-wrap;\">Панорамні вікна та власна тераса. Ідеальний будинок.</span><br><span style=\"white-space: pre-wrap;\">Має дві спальні кімнати: одна з великим комфортним двоспальним ліжком та власною ванною кімнатою, друга – з двома окремими ліжками-трансформерами, що легко перетворюються в одне за потреби.</span></p><p dir=\"ltr\"><span style=\"white-space: pre-wrap;\">У просторій вітальні є великий диван і деревʼяний обідній стіл.</span><br><span style=\"white-space: pre-wrap;\">У вартість проживання включено сніданок та відвідування SPA.</span></p><p><br></p>",
+      "images": [
+        {
+          "id": 20638,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/49103f71-54b1-485e-979f-7f2ecfbb4698.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/49103f71-54b1-485e-979f-7f2ecfbb4698-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/49103f71-54b1-485e-979f-7f2ecfbb4698-resized.webp",
+          "position": 7
+        },
+        {
+          "id": 20639,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/21fa85fb-40d1-434c-9962-63db09df1a96.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/21fa85fb-40d1-434c-9962-63db09df1a96-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/21fa85fb-40d1-434c-9962-63db09df1a96-resized.webp",
+          "position": 2
+        },
+        {
+          "id": 20640,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/d1f45151-daae-4e8a-8985-49c7c462fdc3.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/d1f45151-daae-4e8a-8985-49c7c462fdc3-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/d1f45151-daae-4e8a-8985-49c7c462fdc3-resized.webp",
+          "position": 3
+        },
+        {
+          "id": 20641,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/f2478743-fe3a-41fe-b064-7be57f6a4f5d.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/f2478743-fe3a-41fe-b064-7be57f6a4f5d-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/f2478743-fe3a-41fe-b064-7be57f6a4f5d-resized.webp",
+          "position": 6
+        },
+        {
+          "id": 20642,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/f3cd936f-17a3-46d4-b90f-86ac5bb78123.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/f3cd936f-17a3-46d4-b90f-86ac5bb78123-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/f3cd936f-17a3-46d4-b90f-86ac5bb78123-resized.webp",
+          "position": 5
+        },
+        {
+          "id": 20643,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/3ffede0b-b003-45c5-a683-99a472962be9.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/3ffede0b-b003-45c5-a683-99a472962be9-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/3ffede0b-b003-45c5-a683-99a472962be9-resized.webp",
+          "position": 0
+        },
+        {
+          "id": 20644,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/c47ed582-2be0-4f78-8e4e-2fdd0898a74f.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/c47ed582-2be0-4f78-8e4e-2fdd0898a74f-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/c47ed582-2be0-4f78-8e4e-2fdd0898a74f-resized.webp",
+          "position": 1
+        },
+        {
+          "id": 20645,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/660c175a-6d69-4d21-9c5e-0a9e6d65f585.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/660c175a-6d69-4d21-9c5e-0a9e6d65f585-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1382/660c175a-6d69-4d21-9c5e-0a9e6d65f585-resized.webp",
+          "position": 4
+        }
+      ],
+      "contractConditions": [
+        {
+          "id": 107,
+          "apiID": 1,
+          "name": "Стандартний тариф",
+          "paidTypes": [
+            100,
+            300,
+            200
+          ],
+          "expiredDate": "9999-12-31T00:00:00",
+          "apiPriceListID": 2,
+          "totalPrice": 35000.0,
+          "totalRackRatePrice": 35000.0,
+          "currency": 980,
+          "services": [
+            {
+              "id": 136,
+              "apiID": 1,
+              "name": "Проживання / Accommodation",
+              "serviceSystemCode": "dwelling",
+              "priceDates": [
+                {
+                  "price": 17500.0,
+                  "rackRatePrice": 17500.0,
+                  "date": "2027-03-10T23:59:00"
+                },
+                {
+                  "price": 17500.0,
+                  "rackRatePrice": 17500.0,
+                  "date": "2027-03-11T23:59:00"
+                }
+              ]
+            }
+          ],
+          "saleRestrictions": {
+            "closedToSale": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "closedToArrive": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "earlyReservation": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "minStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "maxStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "minPay": {
+              "days": 2,
+              "message": "",
+              "minPayPaymentRules": [
+                {
+                  "timeFromArriveDate": 60,
+                  "timeForPayment": 1200
+                }
+              ]
+            },
+            "percentageMinPay": {
+              "percentage": 0.0,
+              "message": ""
+            }
+          },
+          "useDisplayRestrictions": false,
+          "isVisible": true,
+          "position": 0
+        }
+      ],
+      "featureCategories": [],
+      "freeRoomsCount": 7,
+      "mainPlacesCount": 4,
+      "nearestDateToReservation": "2027-03-10T00:00:00",
+      "isSaleBeds": false,
+      "armchairBedCount": 0,
+      "doubleBedCount": 0,
+      "extraBedCount": 2,
+      "singleBedCount": 0,
+      "sofaCount": 0,
+      "twinBedCount": 0,
+      "twinDoubleBedCount": 0,
+      "hasBath": false,
+      "hasShower": false,
+      "hasBathOrShower": false,
+      "hasSanNode": false,
+      "isVisible": true,
+      "position": 0
+    },
+    {
+      "id": 1383,
+      "apiID": 12,
+      "roomsCount": 5,
+      "hotelID": 161,
+      "name": "Шале для 2х осіб з 1 спальною кімнатою та вітальнею",
+      "description": "<p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">Сучасний інтерʼєр, панорамне засклення та оздоблення натуральними матеріалами створюють невимушену та затишну атмосферу.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">У будинку буде особливо комфортно удвох, а за бажанням можна розмістити ще 2 гостей на великому розкладному дивані у вітальні.</span></p><p dir=\"ltr\" style=\"text-align: left;\"><span style=\"white-space: pre-wrap;\">У вартість проживання входить сніданок та відвідування SPA.</span></p>",
+      "images": [
+        {
+          "id": 20624,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/2d20ed72-9f4f-41ee-84ec-29f17d4c4bde.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/2d20ed72-9f4f-41ee-84ec-29f17d4c4bde-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/2d20ed72-9f4f-41ee-84ec-29f17d4c4bde-resized.webp",
+          "position": 2
+        },
+        {
+          "id": 20625,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/2996b399-823d-403c-a199-3f2f8d196b7e.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/2996b399-823d-403c-a199-3f2f8d196b7e-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/2996b399-823d-403c-a199-3f2f8d196b7e-resized.webp",
+          "position": 3
+        },
+        {
+          "id": 20626,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/b6b643e3-bfa7-42c7-ad58-f7765b311d43.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/b6b643e3-bfa7-42c7-ad58-f7765b311d43-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/b6b643e3-bfa7-42c7-ad58-f7765b311d43-resized.webp",
+          "position": 0
+        },
+        {
+          "id": 20627,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/84b0cb82-7484-42c8-8bce-2a71913bb8bf.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/84b0cb82-7484-42c8-8bce-2a71913bb8bf-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/84b0cb82-7484-42c8-8bce-2a71913bb8bf-resized.webp",
+          "position": 1
+        },
+        {
+          "id": 20628,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/239a8b0b-7f63-45d0-830d-622862d3e603.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/239a8b0b-7f63-45d0-830d-622862d3e603-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/239a8b0b-7f63-45d0-830d-622862d3e603-resized.webp",
+          "position": 4
+        },
+        {
+          "id": 20629,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/88f4e287-9319-4ca1-9cf1-e8aace4580d6.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/88f4e287-9319-4ca1-9cf1-e8aace4580d6-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/88f4e287-9319-4ca1-9cf1-e8aace4580d6-resized.webp",
+          "position": 5
+        },
+        {
+          "id": 20630,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/7d7925de-6cde-42ad-9868-79024db68162.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/7d7925de-6cde-42ad-9868-79024db68162-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/7d7925de-6cde-42ad-9868-79024db68162-resized.webp",
+          "position": 6
+        },
+        {
+          "id": 20631,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/75d14c55-9de4-4df7-90a3-5de57a9a2c1c.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/75d14c55-9de4-4df7-90a3-5de57a9a2c1c-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/75d14c55-9de4-4df7-90a3-5de57a9a2c1c-resized.webp",
+          "position": 7
+        },
+        {
+          "id": 20632,
+          "url": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/ccbdb736-3709-4f58-b7d3-1addc4ef5844.jpeg",
+          "urlCompressed": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/ccbdb736-3709-4f58-b7d3-1addc4ef5844-compressed.webp",
+          "urlResized": "http://smartspot.servio.support/ServioQR/assets/images/room-types/1383/ccbdb736-3709-4f58-b7d3-1addc4ef5844-resized.webp",
+          "position": 8
+        }
+      ],
+      "contractConditions": [
+        {
+          "id": 107,
+          "apiID": 1,
+          "name": "Стандартний тариф",
+          "paidTypes": [
+            100,
+            300,
+            200
+          ],
+          "expiredDate": "9999-12-31T00:00:00",
+          "apiPriceListID": 2,
+          "totalPrice": 22400.0,
+          "totalRackRatePrice": 22400.0,
+          "currency": 980,
+          "services": [
+            {
+              "id": 136,
+              "apiID": 1,
+              "name": "Проживання / Accommodation",
+              "serviceSystemCode": "dwelling",
+              "priceDates": [
+                {
+                  "price": 11200.0,
+                  "rackRatePrice": 11200.0,
+                  "date": "2027-03-10T23:59:00"
+                },
+                {
+                  "price": 11200.0,
+                  "rackRatePrice": 11200.0,
+                  "date": "2027-03-11T23:59:00"
+                }
+              ]
+            }
+          ],
+          "saleRestrictions": {
+            "closedToSale": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "closedToArrive": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "earlyReservation": {
+              "hasRestrictions": false,
+              "message": ""
+            },
+            "minStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "maxStay": {
+              "hasRestrictions": false,
+              "days": 0,
+              "message": ""
+            },
+            "minPay": {
+              "days": 2,
+              "message": "",
+              "minPayPaymentRules": [
+                {
+                  "timeFromArriveDate": 60,
+                  "timeForPayment": 1200
+                }
+              ]
+            },
+            "percentageMinPay": {
+              "percentage": 0.0,
+              "message": ""
+            }
+          },
+          "useDisplayRestrictions": false,
+          "isVisible": true,
+          "position": 0
+        }
+      ],
+      "featureCategories": [],
+      "freeRoomsCount": 5,
+      "mainPlacesCount": 2,
+      "nearestDateToReservation": "2027-03-10T00:00:00",
+      "isSaleBeds": false,
+      "armchairBedCount": 0,
+      "doubleBedCount": 0,
+      "extraBedCount": 2,
+      "singleBedCount": 0,
+      "sofaCount": 0,
+      "twinBedCount": 0,
+      "twinDoubleBedCount": 0,
+      "hasBath": false,
+      "hasShower": false,
+      "hasBathOrShower": false,
+      "hasSanNode": false,
+      "isVisible": true,
+      "position": 0
+    }
+  ]
+}

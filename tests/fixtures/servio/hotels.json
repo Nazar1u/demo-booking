@@ -1,0 +1,2580 @@
+{
+  "isError": false,
+  "message": "Операція пройшла успішно",
+  "data": [
+    {
+      "id": 161,
+      "apiHotelID": 1,
+      "name": "Riverwood",
+      "defaultName": "Riverwood",
+      "hotelEmail": "reservation@riverwood.com.ua",
+      "images": [],
+      "additionalServices": [],
+      "popUps": [],
+      "isVisible": true,
+      "position": 0,
+      "settings": {
+        "isPaymentEnabled": true,
+        "paymentMethod": "Оплата на сайті",
+        "paymentDisplayMode": "PaymentIframe",
+        "showCheckInAndCheckOutTimeSelects": true,
+        "isPromoCodeAllowed": true,
+        "isExtraBedUsed": true,
+        "showDiscountedPrices": true,
+        "allowOnlyPrepaymentServicesPayment": false,
+        "immediatelyMoveToPaymentService": false,
+        "allowToRequestConsultationBeforePayment": false,
+        "proposeAlternativeDates": false,
+        "isCarNumberEnabled": true,
+        "isCarNumberRequired": false,
+        "isReservationCancellationEnabled": false,
+        "excludeTouristTax": true,
+        "addTouristTaxToBill": true,
+        "displayAdditionalServices": false,
+        "displayPrecheckin": false,
+        "isPrecheckinRequired": false,
+        "displayPrecheckinPopupDocumentAutofillHint": false,
+        "guestLimit": 10,
+        "minChildAge": 0,
+        "maxChildAge": 12,
+        "defaultCheckInTime": "14:00",
+        "defaultCheckOutTime": "12:00",
+        "checkInTimes": [
+          "15:00"
+        ],
+        "checkOutTimes": [
+          "12:00"
+        ],
+        "hotelCurrency": 980,
+        "enabledLanguages": [
+          "uk",
+          "en",
+          "ru",
+          "kk"
+        ],
+        "askGuestCountryOfResidence": true,
+        "defaultGuestCountryOfResidence": "ua",
+        "defaultArrivalDate": "Tomorrow",
+        "defaultDepartureDate": "After1Day",
+        "isGuestEmailRequired": true,
+        "isGuestPhoneNumberRequired": true,
+        "isContactVerificationRequired": false,
+        "verificationMethod": 0,
+        "moduleDisplaySettings": {
+          "showCarouselOnBookingPage": false,
+          "doNotDisplayContractConditionsWithZeroPrice": true,
+          "subCharacteristicsDisplayMode": "Standard",
+          "contractConditionsDisplayMode": "Standard",
+          "doNotDisplayCheckInOutHoursOnBillPage": false,
+          "allowTheDisplayOfAllAvailableRoomTypes": false,
+          "displayRoomTypePricePerNight": false,
+          "doNotDisplayPriceForUnavailableRoomTypes": false,
+          "isRoomTypeTitleAboveContentOnDesktop": false,
+          "isRoomTypeTitleAboveContentOnTabletAndMobile": false,
+          "isRoomTypeTitleCentered": false,
+          "isDetailsButtonNearTitle": false
+        },
+        "agreements": {
+          "showPersonalDataProcessingConsent": false,
+          "isPersonalDataProcessingConsentNecessary": false,
+          "showHotelRules": false,
+          "isHotelRulesNecessary": false,
+          "showPublicOffer": false,
+          "isPublicOfferNecessary": false,
+          "contentTranslations": [],
+          "useAdditionalTermsText": false,
+          "additionalTextTranslations": []
+        },
+        "analytics": {
+          "useGoogleAnalytics": true,
+          "googleDataFlowID": "G-7DPDPDBJ19",
+          "useFacebookAnalytics": false,
+          "trackChooseDate": true,
+          "trackChooseHotelRoom": true,
+          "trackAddUserData": true,
+          "trackOrderCreated": true,
+          "trackPurchase": true
+        },
+        "preferencesSettings": {
+          "displayPreferences": false,
+          "categories": []
+        }
+      },
+      "customizationColorPropertyValues": [
+        {
+          "cssVariable": "--bg-main-body-color",
+          "value": "#f7f9fc",
+          "darkThemeValue": "#141414"
+        },
+        {
+          "cssVariable": "--bg-panel-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--bg-action-button",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--bg-input-color",
+          "value": "#f9f9f9",
+          "darkThemeValue": "#2c2c2c"
+        },
+        {
+          "cssVariable": "--base-font-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--action-button-font-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--popup-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--popup-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-theme-button-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--header-theme-button-icon-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-promo-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--header-promo-input-background-color",
+          "value": "#f9f9f9",
+          "darkThemeValue": "#2c2c2c"
+        },
+        {
+          "cssVariable": "--header-promo-input-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-promo-icon-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-user-cabinet-button-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--header-user-cabinet-button-icon-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-language-button-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--header-language-button-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-language-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--header-language-panel-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-hotel-button-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--header-hotel-button-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-hotel-button-icon-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-hotel-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--header-hotel-panel-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-date-button-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--header-date-button-icon-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-date-button-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-date-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--header-date-panel-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--calendar-selected-dates-back-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--calendar-selected-dates-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#444444"
+        },
+        {
+          "cssVariable": "--header-search-parameters-button-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--header-search-parameters-button-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-search-parameters-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--header-search-parameters-panel-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--header-add-room-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--header-add-room-button-background-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--header-search-button-background-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--header-search-button-icon-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--header-search-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--progress-bar-completed-circles-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--progress-bar-color",
+          "value": "#cccccc",
+          "darkThemeValue": "#555555"
+        },
+        {
+          "cssVariable": "--progress-bar-completed-color",
+          "value": "#65876c",
+          "darkThemeValue": "#3d7e48"
+        },
+        {
+          "cssVariable": "--date-page-background-color",
+          "value": "#f7f9fc",
+          "darkThemeValue": "#141414"
+        },
+        {
+          "cssVariable": "--date-page-popup-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--date-page-popup-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--room-page-background-color",
+          "value": "#f7f9fc",
+          "darkThemeValue": "#141414"
+        },
+        {
+          "cssVariable": "--room-page-popup-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--room-page-popup-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--hotel-room-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--hotel-room-name-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--hotel-room-price-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--hotel-room-expand-description-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--hotel-room-detailed-description-expand-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--hotel-room-expand-contract-conditions-text-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--hotel-room-no-prepayment-additional-info-button-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--hotel-room-prepayment-additional-info-button-color",
+          "value": "rgba(223,195,13,.7)",
+          "darkThemeValue": "rgba(223,195,13,.7)"
+        },
+        {
+          "cssVariable": "--characteristic-item-icon-color",
+          "value": "#3b5f42",
+          "darkThemeValue": "#dcf2e0"
+        },
+        {
+          "cssVariable": "--characteristic-item-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--sub-characteristic-item-back-color",
+          "value": "#e5f6e8",
+          "darkThemeValue": "#3b5f42"
+        },
+        {
+          "cssVariable": "--sub-characteristic-item-icon-color",
+          "value": "#3b5f42",
+          "darkThemeValue": "#dcf2e0"
+        },
+        {
+          "cssVariable": "--sub-characteristic-item-text-color",
+          "value": "#3b5f42",
+          "darkThemeValue": "#dcf2e0"
+        },
+        {
+          "cssVariable": "--free-rooms-count-panel-back-color",
+          "value": "rgba(59, 95, 66, 0.69)",
+          "darkThemeValue": "rgba(35, 93, 47, 0.69)"
+        },
+        {
+          "cssVariable": "--free-rooms-count-panel-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--hotel-room-select-button-background-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--hotel-room-select-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--hotel-room-detailed-description-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--hotel-room-characteristic-category-name-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--hotel-room-characteristic-category-item-icon-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--hotel-room-characteristic-category-item-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--hotel-room-additional-info-back-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--hotel-room-additional-info-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--payment-term-message-back-color",
+          "value": "rgba(223,195,13,.7)",
+          "darkThemeValue": "rgba(223,195,13,.7)"
+        },
+        {
+          "cssVariable": "--contract-condition-expand-description-button-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--selected-contract-condition-back-color",
+          "value": "#e5f6e8",
+          "darkThemeValue": "#3b5f42"
+        },
+        {
+          "cssVariable": "--contract-condition-name-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--additional-services-page-background-color",
+          "value": "#f7f9fc",
+          "darkThemeValue": "#141414"
+        },
+        {
+          "cssVariable": "--additional-services-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--additional-services-title-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--additional-services-popup-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--additional-services-popup-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--additional-service-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--selected-additional-service-panel-background-color",
+          "value": "#c8ffc8",
+          "darkThemeValue": "#608360"
+        },
+        {
+          "cssVariable": "--additional-service-name-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--hotel-additional-service-expand-description-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--additional-service-type-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--additional-service-total-price-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--additional-service-price-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--additional-service-type-tooltip-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--additional-service-type-tooltip-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--additional-service-select-button-background-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--additional-service-select-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--additional-service-decline-button-background-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--additional-service-decline-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--additional-service-quantity-increase-button-back-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--additional-service-quantity-increase-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--additional-service-quantity-decrease-button-back-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--additional-service-quantity-decrease-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--additional-service-quantity-input-background-color",
+          "value": "#f9f9f9",
+          "darkThemeValue": "#2c2c2c"
+        },
+        {
+          "cssVariable": "--additional-service-quantity-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--additional-services-continue-button-background-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--additional-services-continue-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--your-data-page-background-color",
+          "value": "#f7f9fc",
+          "darkThemeValue": "#141414"
+        },
+        {
+          "cssVariable": "--your-data-entry-title-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--your-data-entry-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--your-data-field-label-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--your-data-fields-background-color",
+          "value": "#f9f9f9",
+          "darkThemeValue": "#2c2c2c"
+        },
+        {
+          "cssVariable": "--your-data-fields-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--booking-info-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--booking-info-title-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--booking-info-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--booking-info-important-text-color",
+          "value": "#ff4500",
+          "darkThemeValue": "#ff4500"
+        },
+        {
+          "cssVariable": "--booking-info-icons-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--booking-info-empty-checkbox-background-color",
+          "value": "#f9f9f9",
+          "darkThemeValue": "#2c2c2c"
+        },
+        {
+          "cssVariable": "--book-button-background-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--book-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--precheckin-page-background-color",
+          "value": "#f7f9fc",
+          "darkThemeValue": "#141414"
+        },
+        {
+          "cssVariable": "--precheckin-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--precheckin-title-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--precheckin-reservation-number-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--precheckin-subtitle-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--precheckin-client-panel-empty-checkbox-background-color",
+          "value": "#f9f9f9",
+          "darkThemeValue": "#2c2c2c"
+        },
+        {
+          "cssVariable": "--precheckin-agreements-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--precheckin-language-button-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--precheckin-language-button-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--precheckin-language-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--precheckin-language-panel-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--precheckin-client-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--precheckin-client-panel-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--precheckin-client-panel-important-text-color",
+          "value": "#ff4500",
+          "darkThemeValue": "#ff4500"
+        },
+        {
+          "cssVariable": "--precheckin-client-panel-fields-background-color",
+          "value": "#f9f9f9",
+          "darkThemeValue": "#2c2c2c"
+        },
+        {
+          "cssVariable": "--precheckin-client-panel-fields-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--precheckin-file-button-background-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--precheckin-file-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--precheckin-continue-button-background-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--precheckin-continue-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--precheckin-save-button-background-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--precheckin-save-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--bill-page-background-color",
+          "value": "#f7f9fc",
+          "darkThemeValue": "#141414"
+        },
+        {
+          "cssVariable": "--bill-payment-required-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-booking-number-label-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-booking-number-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-amount-label-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-amount-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-summary-panel-background-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#333333"
+        },
+        {
+          "cssVariable": "--bill-room-name-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-contract-condition-icon-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-contract-condition-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-booking-date-icon-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-booking-date-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-guest-icon-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-guest-text-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-amount-due-label-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-amount-due-color",
+          "value": "#444444",
+          "darkThemeValue": "#eeeeee"
+        },
+        {
+          "cssVariable": "--bill-pay-button-background-color",
+          "value": "#222222",
+          "darkThemeValue": "#ffffff"
+        },
+        {
+          "cssVariable": "--bill-pay-button-icon-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        },
+        {
+          "cssVariable": "--bill-pay-button-text-color",
+          "value": "#ffffff",
+          "darkThemeValue": "#222222"
+        }
+      ],
+      "customizationLayoutValues": [
+        {
+          "cssVariable": "--header-buttons-border-radius",
+          "value": "15",
+          "tabletValue": "15",
+          "mobileValue": "3",
+          "desktopUnit": "px",
+          "tabletUnit": "px",
+          "mobileUnit": "vmin"
+        },
+        {
+          "cssVariable": "--hotel-room-panel-height",
+          "value": "0",
+          "tabletValue": "120",
+          "mobileValue": "155",
+          "desktopUnit": "px",
+          "tabletUnit": "vmin",
+          "mobileUnit": "vmin"
+        },
+        {
+          "cssVariable": "--hotel-room-image-width",
+          "value": "52.5",
+          "tabletValue": "100",
+          "mobileValue": "100",
+          "desktopUnit": "%",
+          "tabletUnit": "%",
+          "mobileUnit": "%"
+        },
+        {
+          "cssVariable": "--hotel-room-image-height",
+          "value": "420",
+          "tabletValue": "57",
+          "mobileValue": "60",
+          "desktopUnit": "px",
+          "tabletUnit": "vmin",
+          "mobileUnit": "vmin"
+        }
+      ],
+      "minPrices": [
+        {
+          "date": "2025-10-30T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-10-31T00:00:00",
+          "minPrice": 5530.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 7700.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 19460.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 12180.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 13860.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 8330.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-01T00:00:00",
+          "minPrice": 5530.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 7700.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 19460.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 12180.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 13860.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 8330.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-02T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-03T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-04T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-05T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-06T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-07T00:00:00",
+          "minPrice": 5530.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 7700.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 19460.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 12180.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 13860.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 8330.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-08T00:00:00",
+          "minPrice": 5530.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 7700.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 19460.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 12180.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 13860.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 8330.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-09T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-10T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-11T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-12T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-13T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-14T00:00:00",
+          "minPrice": 5530.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 7700.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 19460.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 12180.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 13860.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 8330.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-15T00:00:00",
+          "minPrice": 5530.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 7700.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 19460.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 12180.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 13860.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 8330.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-16T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-17T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-18T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-19T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-20T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-21T00:00:00",
+          "minPrice": 5530.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 7700.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 19460.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 12180.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 13860.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 8330.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-22T00:00:00",
+          "minPrice": 5530.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 7700.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 19460.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 12180.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 13860.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 8330.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-23T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-24T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-25T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-26T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-27T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-28T00:00:00",
+          "minPrice": 5530.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 7700.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 19460.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 12180.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 13860.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 8330.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-29T00:00:00",
+          "minPrice": 5530.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 5530.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 7700.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 7630.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 19460.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 12180.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 13860.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 8330.0
+            }
+          ]
+        },
+        {
+          "date": "2025-11-30T00:00:00",
+          "minPrice": 4410.0,
+          "currency": 980,
+          "rooms": [
+            {
+              "roomTypeID": 2,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 3,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 4,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 5,
+              "price": 4410.0
+            },
+            {
+              "roomTypeID": 6,
+              "price": 6230.0
+            },
+            {
+              "roomTypeID": 7,
+              "price": 6020.0
+            },
+            {
+              "roomTypeID": 8,
+              "price": 6195.0
+            },
+            {
+              "roomTypeID": 9,
+              "price": 16100.0
+            },
+            {
+              "roomTypeID": 10,
+              "price": 10080.0
+            },
+            {
+              "roomTypeID": 11,
+              "price": 11550.0
+            },
+            {
+              "roomTypeID": 12,
+              "price": 6930.0
+            }
+          ]
+        }
+      ],
+      "defaultGuestCountriesOfResidence": [
+        "ua",
+        "gb",
+        "us",
+        "ru",
+        "kz",
+        "lt",
+        "pl",
+        "es",
+        "uz"
+      ]
+    }
+  ]
+}

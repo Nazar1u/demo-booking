@@ -82,7 +82,30 @@ uv run manage.py runserver
 
 ---
 
-## Фаза 1 — Розвідка API Servio (1 день) 🔴 найризикованіша
+## Фаза 1 — Розвідка API Servio ✅ ВИКОНАНО (крім двох write-ендпоінтів)
+
+Результат — [servio-api.md](servio-api.md) + фікстури в `tests/fixtures/servio/`.
+
+- [x] **1.1** Трафік знято з живого віджета на 10–12 березня 2027
+      (Playwright + системний Chrome), усі виклики read-only
+- [x] **1.2** Контракт задокументовано: 13 ендпоінтів, конверт
+      `{isError, message, data}`, **HTTP завжди 200**, API-ключа немає —
+      тільки `X-Language` + `X-Servio-SessionId`
+- [x] **1.3** CORS: `access-control-allow-origin: *`, `Referer` не
+      перевіряється — серверний виклик `/rooms` без браузерних заголовків
+      підтверджено. **Рішення: проксі через Django**
+- [x] **1.4** Фікстури: `company.json`, `hotels.json`, `rooms-request.json`,
+      `rooms-response.json` + три конверти помилок
+- [ ] `/book` і `/make-payment` — форма payload відновлена зі статичного
+      розбору бандла, живим викликом не перевірена. Перевірка — Фаза 7,
+      одна бронь на березень 2027
+
+Що з'ясувалось і впливає на решту плану: `/make-payment` не віддає простого
+«посилання на оплату» — віддає `paymentServiceID`, і далі 7 різних гілок
+(UPC iframe / редірект / Redsys form-post / Monobank). Деталі — у
+[servio-api.md](servio-api.md#post-make-payment--оплата).
+
+### Як це робилось (архів)
 
 **1.1** Зняти трафік: `riverwood.com.ua/booking/` → DevTools → Network →
 фільтр `servio`. Пройти весь шлях **на дати березня 2027**, зупинившись перед
@@ -122,9 +145,16 @@ data}`); формат помилок.
 - *Пошук:* `check_in`, `check_out`, `adults`, `children`
 - *Номер:* `room_type_id`, `room_name`, `price`, `currency`
 - *Гість:* `guest_name`, `guest_email`, `guest_phone`, `comment`
-- *Інтеграція:* `servio_booking_id`, `payment_url`, `status`,
-  `raw_request`/`raw_response` (`models.JSONField` — портативний,
+- *Інтеграція:* `servio_booking_id` (= `apiReservationID`), `payment_url`,
+  `status`, `raw_request`/`raw_response` (`models.JSONField` — портативний,
   працює однаково в SQLite і PG), `created_at`
+- *Оффер:* `room_type_id`, `contract_condition_id`, `api_price_list_id` —
+  цю трійку треба протягнути з кроку 2 у крок 4 незмінною, інакше `/book`
+  відхилить запит
+
+`payment_url` має бути nullable: за контрактом Servio оплата не завжди
+приходить як посилання (див. [servio-api.md](servio-api.md)), тому джерело
+істини — `raw_response` від `/make-payment`.
 
 Статуси мінімальні, бо оплату не моніторимо: `pending` → `confirmed` → `failed`.
 Зберігати сирі payload'и в JSON — критично для дебагу чужого API.
