@@ -100,6 +100,10 @@ jobs:
 
     # Локально образ не збирається (немає Docker), тому це єдине місце, де
     # перевіряються Dockerfile, entrypoint, gunicorn і whitenoise.
+    #
+    # УВАГА для Фази 9: цей job збирає amd64, а сервер — aarch64. Для образу,
+    # який реально їде на сервер, потрібен ARM-раннер (ubuntu-24.04-arm) або
+    # buildx з QEMU. Тут amd64 навмисно: перевірка Dockerfile нативна і швидка.
     env:
       SECRET_KEY: ci-only-not-a-secret
       ALLOWED_HOSTS: localhost,127.0.0.1

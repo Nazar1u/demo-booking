@@ -20,6 +20,7 @@ media/
 
 # Не потрібне рантайму
 docs/
+deploy/
 tests/
 README.md
 env.example
