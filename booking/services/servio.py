@@ -31,6 +31,8 @@ logger = logging.getLogger(__name__)
 DEFAULT_PAID_TYPE = 200
 DEFAULT_CURRENCY = 980  # UAH, ISO-4217 numeric
 
+CURRENCY_CODES = {980: 'UAH', 840: 'USD', 978: 'EUR'}
+
 # paymentServiceID, для яких Servio віддає готове посилання (див.
 # docs/servio-api.md): віджет робить document.location.href = data.url
 REDIRECT_PAYMENT_SERVICES = frozenset({3, 4, 6, 9, 10, 12, 14, 15, 17, 18})
@@ -145,6 +147,10 @@ class RoomOffer:
         return True
 
     @property
+    def currency_code(self) -> str:
+        return CURRENCY_CODES.get(self.currency, str(self.currency))
+
+    @property
     def price_per_night(self) -> Decimal:
         nights = self.nights
         if not nights:
@@ -244,13 +250,24 @@ def _stay_limit(sale_restrictions: dict, key: str) -> int | None:
     return int(days) if days else None
 
 
+def _https(url: str) -> str:
+    """Servio віддає картинки по http://, хоч https теж працює.
+
+    Лишати як є небезпечно: під HTTPS браузер заблокує їх як mixed content,
+    і картинки просто зникнуть без жодної помилки.
+    """
+    if url.startswith('http://'):
+        return 'https://' + url[len('http://'):]
+    return url
+
+
 def _images(room_type: dict) -> tuple[str, ...]:
     images = sorted(
         room_type.get('images') or [],
         key=lambda i: i.get('position', 0),
     )
     return tuple(
-        img.get('urlResized') or img.get('urlCompressed') or img.get('url', '')
+        _https(img.get('urlResized') or img.get('urlCompressed') or img.get('url', ''))
         for img in images
         if img.get('urlResized') or img.get('urlCompressed') or img.get('url')
     )

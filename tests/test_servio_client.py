@@ -123,7 +123,19 @@ class ParseRoomOffersTests(SimpleTestCase):
         self.assertEqual(offer.rooms_total, 9)
         self.assertTrue(offer.is_available)
         self.assertTrue(offer.images)
-        self.assertTrue(all(url.startswith('http') for url in offer.images))
+
+    def test_image_urls_are_upgraded_to_https(self):
+        """Servio віддає http:// — під HTTPS такі картинки блокуються як
+        mixed content і зникають без помилки."""
+        raw_urls = [
+            img['urlResized']
+            for rt in self.data for img in rt.get('images') or []
+        ]
+        self.assertTrue(any(url.startswith('http://') for url in raw_urls))
+        self.assertTrue(all(
+            url.startswith('https://')
+            for offer in self.offers for url in offer.images
+        ))
 
     def test_sorted_by_price(self):
         prices = [o.total_price for o in self.offers]

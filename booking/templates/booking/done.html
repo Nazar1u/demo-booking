@@ -1,0 +1,51 @@
+{% extends "booking/base.html" %}
+
+{% block title %}Бронь {{ booking.servio_booking_id|default:booking.pk }} — Riverwood{% endblock %}
+
+{% block content %}
+<div class="panel">
+  <h1>Бронь створена</h1>
+  <p class="lede">
+    {% if booking.servio_booking_id %}
+      Номер броні в системі готелю — <strong>{{ booking.servio_booking_id }}</strong>.
+    {% else %}
+      Готель обробляє вашу заявку.
+    {% endif %}
+  </p>
+
+  <dl class="summary">
+    <dt>Номер</dt><dd>{{ booking.room_name }}</dd>
+    <dt>Заїзд</dt><dd>{{ booking.check_in|date:"d.m.Y" }}, з {{ booking.time_arrival|time:"H:i" }}</dd>
+    <dt>Виїзд</dt><dd>{{ booking.check_out|date:"d.m.Y" }}, до {{ booking.time_departure|time:"H:i" }}</dd>
+    <dt>Ночей</dt><dd>{{ booking.nights }}</dd>
+    <dt>Гостей</dt>
+    <dd>
+      {{ booking.adults }} дорослих{% if booking.children %}, {{ booking.children }} діт.{% endif %}
+    </dd>
+    <dt>Гість</dt><dd>{{ booking.guest_name }}</dd>
+    <dt>Контакти</dt><dd>{{ booking.guest_email }} · {{ booking.guest_phone }}</dd>
+    <dt>Статус</dt><dd>{{ booking.get_status_display }}</dd>
+  </dl>
+
+  <p class="total" style="margin-top:18px">
+    {{ booking.price|floatformat:0 }} {{ booking.currency_code }}
+  </p>
+
+  {% if booking.payment_url %}
+    <div class="actions">
+      <a href="{{ booking.payment_url }}" rel="noopener noreferrer">
+        <button type="button">Перейти до оплати</button>
+      </a>
+    </div>
+  {% else %}
+    <p class="msg warning" style="margin-top:18px">
+      Перейти до оплати автоматично не вдалося. Готель надішле посилання на
+      оплату на {{ booking.guest_email }}.
+    </p>
+  {% endif %}
+
+  <p style="margin-top:20px">
+    <a href="{% url 'booking:search' %}">Забронювати ще один номер</a>
+  </p>
+</div>
+{% endblock %}

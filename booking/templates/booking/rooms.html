@@ -1,0 +1,86 @@
+{% extends "booking/base.html" %}
+
+{% block title %}Вибір номера — Riverwood{% endblock %}
+
+{% block content %}
+<div class="panel">
+  <h1>Вільні номери</h1>
+  <p class="lede">
+    {{ criteria.check_in|date:"d.m.Y" }} → {{ criteria.check_out|date:"d.m.Y" }},
+    {{ nights }} ноч.,
+    {{ criteria.adults }} дорослих{% if criteria.children %}, {{ criteria.children }} діт.{% endif %}
+    · <a href="{% url 'booking:search' %}">змінити</a>
+  </p>
+
+  {% if offers %}
+    {% for offer in offers %}
+      <div class="offer">
+        {% if offer.images %}
+          <img src="{{ offer.images.0 }}" alt="{{ offer.name }}" loading="lazy">
+        {% else %}
+          <img alt="" aria-hidden="true">
+        {% endif %}
+
+        <div class="body">
+          <h3>{{ offer.name }}</h3>
+          <p class="meta">
+            {{ offer.rate_name }}
+            {% if offer.main_places %}· до {{ offer.main_places }} осіб{% endif %}
+            {% if offer.has_bath %}· ванна{% elif offer.has_shower %}· душ{% endif %}
+          </p>
+          {% if offer.free_rooms <= 2 %}
+            <span class="tag low">Залишилось {{ offer.free_rooms }}</span>
+          {% else %}
+            <span class="tag">Вільно {{ offer.free_rooms }}</span>
+          {% endif %}
+        </div>
+
+        <div class="side">
+          <div>
+            <div class="price">{{ offer.total_price|floatformat:0 }} {{ offer.currency_code }}</div>
+            <div class="muted" style="font-size:13px">
+              {{ offer.price_per_night|floatformat:0 }} / ніч
+            </div>
+          </div>
+          <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="offer_key" value="{{ offer.offer_key }}">
+            <button type="submit" data-busy="Готую…">Вибрати</button>
+          </form>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>
+      На ці дати вільних номерів немає.
+      <a href="{% url 'booking:search' %}">Спробуйте інші дати.</a>
+    </p>
+  {% endif %}
+</div>
+
+{% if unavailable %}
+  <div class="panel dim">
+    <h2>Недоступні на ці дати</h2>
+    {% for offer in unavailable %}
+      <div class="offer">
+        <div class="body">
+          <h3>{{ offer.name }}</h3>
+          <p class="meta">
+            {% if offer.blocking_restrictions %}
+              {{ offer.blocking_restrictions|join:"; " }}
+            {% elif offer.free_rooms <= 0 %}
+              Немає вільних номерів
+            {% elif offer.min_stay %}
+              Мінімальне проживання — {{ offer.min_stay }} ноч.
+            {% elif offer.max_stay %}
+              Максимальне проживання — {{ offer.max_stay }} ноч.
+            {% else %}
+              Недоступний
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+{% endblock %}

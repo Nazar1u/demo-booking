@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Бронювання — Riverwood{% endblock %}</title>
+  {% comment %}
+    CSS інлайном навмисно: whitenoise і collectstatic заводяться у Фазі 7,
+    а до того сторінки мають виглядати однаково при DEBUG=True і False.
+  {% endcomment %}
+  <style>
+    :root {
+      --bg: #f7f9fc; --panel: #fff; --ink: #2b2f36; --muted: #6b7280;
+      --line: #e4e8ef; --accent: #1f7a5a; --accent-ink: #fff;
+      --warn: #8a5a00; --warn-bg: #fff6e5; --err: #98221f; --err-bg: #fdeceb;
+      --ok-bg: #e9f5f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    a { color: var(--accent); }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 24px 16px 64px; }
+    header.site { border-bottom: 1px solid var(--line); background: var(--panel); }
+    header.site .wrap { padding: 16px; display: flex; justify-content: space-between;
+      align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .brand { font-weight: 600; font-size: 18px; text-decoration: none; color: var(--ink); }
+    .brand span { color: var(--muted); font-weight: 400; font-size: 14px; }
+    .steps { display: flex; gap: 8px; list-style: none; margin: 0 0 24px; padding: 0;
+      flex-wrap: wrap; font-size: 14px; }
+    .steps li { color: var(--muted); padding: 4px 10px; border-radius: 999px;
+      background: var(--panel); border: 1px solid var(--line); }
+    .steps li.on { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+    .steps li.done { color: var(--accent); }
+    .panel { background: var(--panel); border: 1px solid var(--line);
+      border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+    h1 { font-size: 24px; margin: 0 0 4px; }
+    h2 { font-size: 18px; margin: 0 0 12px; }
+    .lede { color: var(--muted); margin: 0 0 20px; }
+    .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+    label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    input[type=text], input[type=date], input[type=email], input[type=number], textarea {
+      width: 100%; padding: 9px 10px; border: 1px solid var(--line);
+      border-radius: 8px; font: inherit; background: #fdfdfe; color: var(--ink);
+    }
+    .help { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .errors { list-style: none; margin: 4px 0 0; padding: 0; color: var(--err); font-size: 13px; }
+    .check { display: flex; align-items: center; gap: 8px; }
+    .check input { width: auto; }
+    button {
+      font: inherit; font-weight: 500; cursor: pointer; padding: 10px 18px;
+      border-radius: 8px; border: 1px solid var(--accent);
+      background: var(--accent); color: var(--accent-ink);
+    }
+    button.ghost { background: transparent; color: var(--accent); }
+    button[disabled] { opacity: .6; cursor: progress; }
+    .actions { display: flex; gap: 10px; align-items: center; margin-top: 20px; flex-wrap: wrap; }
+    .msg { padding: 10px 14px; border-radius: 8px; margin-bottom: 12px; font-size: 15px; }
+    .msg.error { background: var(--err-bg); color: var(--err); }
+    .msg.warning { background: var(--warn-bg); color: var(--warn); }
+    .msg.info, .msg.success { background: var(--ok-bg); color: var(--accent); }
+    .offer { display: flex; gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); }
+    .offer:first-of-type { border-top: 0; }
+    .offer img { width: 160px; height: 110px; object-fit: cover; border-radius: 8px;
+      background: var(--line); flex: none; }
+    .offer .body { flex: 1 1 auto; min-width: 0; }
+    .offer h3 { margin: 0 0 4px; font-size: 17px; }
+    .offer .meta { color: var(--muted); font-size: 14px; margin: 0 0 8px; }
+    .offer .price { font-size: 19px; font-weight: 600; white-space: nowrap; }
+    .offer .side { text-align: right; display: flex; flex-direction: column;
+      justify-content: space-between; align-items: flex-end; gap: 10px; flex: none; }
+    .tag { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 999px;
+      background: var(--ok-bg); color: var(--accent); }
+    .tag.low { background: var(--warn-bg); color: var(--warn); }
+    dl.summary { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0; }
+    dl.summary dt { color: var(--muted); font-size: 14px; }
+    dl.summary dd { margin: 0; }
+    .total { font-size: 22px; font-weight: 600; }
+    .muted { color: var(--muted); }
+    .dim { opacity: .55; }
+    pre.raw { background: #f2f4f8; border-radius: 8px; padding: 12px;
+      overflow: auto; max-height: 20em; font-size: 13px; }
+    @media (max-width: 620px) {
+      .offer { flex-wrap: wrap; }
+      .offer img { width: 100%; height: 160px; }
+      .offer .side { text-align: left; align-items: stretch; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="{% url 'booking:search' %}">
+        Riverwood <span>демо-бронювання</span>
+      </a>
+      <span class="muted" style="font-size:13px">
+        Тестовий стенд — бронювання лише на березень 2027
+      </span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <ol class="steps">
+      <li class="{% if step == 1 %}on{% elif step > 1 %}done{% endif %}">1. Дати й гості</li>
+      <li class="{% if step == 2 %}on{% elif step > 2 %}done{% endif %}">2. Номер</li>
+      <li class="{% if step == 3 %}on{% elif step > 3 %}done{% endif %}">3. Дані гостя</li>
+      <li class="{% if step == 4 %}on{% endif %}">4. Оплата</li>
+    </ol>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="msg {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <script>
+    // Пошук у Servio відповідає близько 9 секунд — без цього користувач
+    // тисне кнопку повторно, а на кроці 4 це була б друга бронь.
+    document.addEventListener('submit', function (event) {
+      var form = event.target;
+      if (!(form instanceof HTMLFormElement)) return;
+      var button = form.querySelector('button[type=submit], button:not([type])');
+      if (!button || button.disabled) return;
+      var busy = button.dataset.busy;
+      if (busy) button.textContent = busy;
+      button.disabled = true;
+      // Кнопку не вимикаємо назовсім: якщо валідація на сервері поверне
+      // форму назад, нова сторінка приїде з активною кнопкою.
+    });
+  </script>
+</body>
+</html>

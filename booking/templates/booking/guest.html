@@ -1,0 +1,76 @@
+{% extends "booking/base.html" %}
+
+{% block title %}Дані гостя — Riverwood{% endblock %}
+
+{% block content %}
+<div class="panel">
+  <h2>Ваша бронь</h2>
+  <div class="offer">
+    {% if selected.image %}
+      <img src="{{ selected.image }}" alt="{{ selected.name }}" loading="lazy">
+    {% endif %}
+    <div class="body">
+      <h3>{{ selected.name }}</h3>
+      <p class="meta">{{ selected.rate_name }}</p>
+      <dl class="summary">
+        <dt>Заїзд</dt><dd>{{ criteria.check_in|date:"d.m.Y" }}, з 14:00</dd>
+        <dt>Виїзд</dt><dd>{{ criteria.check_out|date:"d.m.Y" }}, до 12:00</dd>
+        <dt>Ночей</dt><dd>{{ selected.nights }}</dd>
+        <dt>Гостей</dt>
+        <dd>
+          {{ criteria.adults }} дорослих{% if criteria.children %},
+          {{ criteria.children }} діт.{% endif %}
+        </dd>
+      </dl>
+    </div>
+    <div class="side">
+      <div>
+        <div class="total">{{ selected.total_price|floatformat:0 }} {{ selected.currency_code }}</div>
+        <div class="muted" style="font-size:13px">за весь період</div>
+      </div>
+      <a href="{% url 'booking:rooms' %}" style="font-size:14px">змінити номер</a>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <h1>Ваші дані</h1>
+  <p class="lede">
+    Email і телефон обов'язкові — готель надсилає на них підтвердження.
+  </p>
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+      <ul class="errors">
+        {% for error in form.non_field_errors %}<li>{{ error }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="grid">
+      {% include "booking/_field.html" with field=form.full_name %}
+      {% include "booking/_field.html" with field=form.email %}
+      {% include "booking/_field.html" with field=form.phone %}
+    </div>
+
+    <div style="margin-top:14px">
+      {% include "booking/_field.html" with field=form.comment %}
+    </div>
+
+    <div style="margin-top:14px;max-width:320px">
+      {% include "booking/_field.html" with field=form.travels_by_car %}
+      {% include "booking/_field.html" with field=form.car_number %}
+    </div>
+
+    <div class="actions">
+      <button type="submit" data-busy="Створюю бронь…">
+        Забронювати й перейти до оплати
+      </button>
+    </div>
+    <p class="help" style="margin-top:10px">
+      Натискаючи кнопку, ви створюєте справжню бронь у системі готелю.
+    </p>
+  </form>
+</div>
+{% endblock %}

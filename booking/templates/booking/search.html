@@ -1,0 +1,40 @@
+{% extends "booking/base.html" %}
+
+{% block title %}Дати й гості — Riverwood{% endblock %}
+
+{% block content %}
+<div class="panel">
+  <h1>Коли плануєте приїхати?</h1>
+  <p class="lede">
+    Виберіть дати й склад гостей — покажемо вільні номери з актуальними цінами.
+  </p>
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+      <ul class="errors">
+        {% for error in form.non_field_errors %}<li>{{ error }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="grid">
+      {% include "booking/_field.html" with field=form.check_in %}
+      {% include "booking/_field.html" with field=form.check_out %}
+      {% include "booking/_field.html" with field=form.adults %}
+      {% include "booking/_field.html" with field=form.children %}
+    </div>
+
+    <div style="margin-top:14px;max-width:320px">
+      {% include "booking/_field.html" with field=form.children_ages %}
+    </div>
+
+    <div class="actions">
+      <button type="submit" data-busy="Шукаю вільні номери…">Знайти номери</button>
+      <span class="muted" style="font-size:14px">
+        Пошук у системі готелю займає до 15 секунд.
+      </span>
+    </div>
+  </form>
+</div>
+{% endblock %}
