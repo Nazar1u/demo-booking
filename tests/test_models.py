@@ -78,6 +78,16 @@ class BookingModelTests(TestCase):
                 with self.assertRaises(IntegrityError), transaction.atomic():
                     make(check_in=check_in, check_out=check_out)
 
+    def test_no_postgres_only_fields(self):
+        """Модель мусить лишатися портативною: локальна розробка йде на
+        SQLite, прод — на Postgres, і різниці в коді бути не має."""
+        offenders = [
+            (field.name, type(field).__module__)
+            for field in Booking._meta.get_fields()
+            if 'postgres' in type(field).__module__
+        ]
+        self.assertEqual(offenders, [])
+
     def test_json_fields_survive_a_round_trip(self):
         """JSONField має бути портативним: у Фазі 6 та сама модель піде на
         Postgres без змін."""

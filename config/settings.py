@@ -99,6 +99,14 @@ DATABASES = {
     ),
 }
 
+# Persistent connections: worth it behind gunicorn + Postgres, pointless with
+# the dev server. Defaults match Django's, so nothing changes until the
+# container sets them.
+DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=0)
+DATABASES['default']['CONN_HEALTH_CHECKS'] = env.bool(
+    'CONN_HEALTH_CHECKS', default=False,
+)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators

@@ -44,6 +44,52 @@ jobs:
       - name: No missing migrations
         run: uv run python manage.py makemigrations --check --dry-run --settings=config.settings_test
 
-      # На цьому етапі БД — SQLite. Postgres додається у Фазі 6.
-      - name: Tests
+      # Локальна розробка йде на SQLite, тому цей шлях теж має бути зелений.
+      - name: Tests (SQLite)
+        run: uv run pytest -q
+
+  postgres:
+    name: tests on postgres
+    runs-on: ubuntu-latest
+
+    # Локального Docker на машині розробки немає, тому справжня PG
+    # перевіряється тут (docs/PLAN.md, Фаза 6).
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: booking
+          POSTGRES_PASSWORD: booking
+          POSTGRES_DB: booking
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U booking"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      DATABASE_URL: postgres://booking:booking@localhost:5432/booking
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      # Міграції мусять накатуватись на порожню базу з нуля
+      - name: Migrate a clean database
+        run: uv run python manage.py migrate --settings=config.settings_test
+
+      - name: Tests (PostgreSQL)
         run: uv run pytest -q
