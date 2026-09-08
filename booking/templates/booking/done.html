@@ -31,13 +31,22 @@
     {{ booking.price|floatformat:0 }} {{ booking.currency_code }}
   </p>
 
-  {% if booking.payment_url %}
+  {% if booking.is_payable %}
     <div class="actions">
-      <a href="{{ booking.payment_url }}" rel="noopener noreferrer">
+      <a href="{% url 'booking:pay' booking.pk %}">
         <button type="button">Перейти до оплати</button>
       </a>
+      <span class="muted" id="countdown" data-left="{{ booking.seconds_left }}">
+        Оплатити треба до {{ booking.payment_deadline|time:"H:i" }}
+      </span>
     </div>
-  {% else %}
+  {% elif booking.status == 'expired' %}
+    <p class="msg error" style="margin-top:18px">
+      Час на оплату вийшов, бронь відхилена. Якщо ви все ж оплатили —
+      зв'яжіться з готелем, номер броні вище.
+    </p>
+    <p><a href="{% url 'booking:search' %}">Забронювати заново</a></p>
+  {% elif not booking.payment_url %}
     <p class="msg warning" style="margin-top:18px">
       Перейти до оплати автоматично не вдалося. Готель надішле посилання на
       оплату на {{ booking.guest_email }}.
@@ -48,4 +57,29 @@
     <a href="{% url 'booking:search' %}">Забронювати ще один номер</a>
   </p>
 </div>
+
+{% if booking.is_payable %}
+<script>
+  // Видимий відлік вікна на оплату. По його завершенні перезавантажуємо
+  // сторінку — сервер покаже вже відхилений стан. Сам дедлайн рахується на
+  // сервері, цей таймер лише показує його.
+  (function () {
+    var el = document.getElementById('countdown');
+    if (!el) return;
+    var left = parseInt(el.dataset.left, 10);
+    if (!(left > 0)) return;
+    var deadlineText = el.textContent.trim();
+
+    function tick() {
+      if (left <= 0) { location.reload(); return; }
+      var m = Math.floor(left / 60), s = left % 60;
+      el.textContent = deadlineText + ' — залишилось ' +
+        m + ':' + (s < 10 ? '0' : '') + s;
+      left -= 1;
+      setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+</script>
+{% endif %}
 {% endblock %}

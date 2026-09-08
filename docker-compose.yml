@@ -52,5 +52,34 @@ services:
       # ТЗ вимагає доступ на 8080
       - "${WEB_PORT:-8080}:8000"
 
+  # Відхиляє неоплачені броні після PAYMENT_WINDOW_MINUTES. Окремий сервіс,
+  # а не cron у образі: slim-образ його не має, а ставити cron заради одного
+  # завдання — зайва сутність. Той самий образ, інша команда.
+  scheduler:
+    image: ${WEB_IMAGE:-demo-booking:local}
+    restart: unless-stopped
+    # HEALTHCHECK з образу стукає в /healthz, а цей сервіс HTTP не слухає —
+    # без цього рядка він назавжди лишався б unhealthy.
+    healthcheck:
+      disable: true
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SECRET_KEY: ${SECRET_KEY:?SECRET_KEY is required}
+      DEBUG: ${DEBUG:-False}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:?ALLOWED_HOSTS is required}
+      DATABASE_URL: postgres://${POSTGRES_USER:-booking}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-booking}
+      PAYMENT_WINDOW_MINUTES: ${PAYMENT_WINDOW_MINUTES:-20}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        echo "==> scheduler: expire_bookings кожні ${SCHEDULER_INTERVAL:-60}s"
+        while true; do
+          python manage.py expire_bookings --quiet || true
+          sleep ${SCHEDULER_INTERVAL:-60}
+        done
+
 volumes:
   pgdata:

@@ -1,5 +1,9 @@
+import datetime as dt
+
+from django.conf import settings
 from django.db import models
 from django.db.models import F, Q
+from django.utils import timezone
 
 
 class Booking(models.Model):
@@ -17,7 +21,8 @@ class Booking(models.Model):
     class Status(models.TextChoices):
         PENDING = 'pending', 'Очікує оплати'
         CONFIRMED = 'confirmed', 'Підтверджена'
-        FAILED = 'failed', 'Відхилена'
+        FAILED = 'failed', 'Відхилена — оплату не вдалося ініціювати'
+        EXPIRED = 'expired', 'Відхилена — час на оплату вийшов'
 
     CURRENCY_CHOICES = [
         (980, 'UAH'),
@@ -103,3 +108,50 @@ class Booking(models.Model):
     @property
     def currency_code(self):
         return dict(self.CURRENCY_CHOICES).get(self.currency, str(self.currency))
+
+    # --- вікно на оплату ------------------------------------------------
+    # Оплату ми не моніторимо (умова ТЗ), тому «не оплачено» тут означає
+    # рівно «час вийшов, а ми не отримали підтвердження». Це рішення
+    # власника проєкту, а не сигнал від платіжного сервісу.
+
+    @property
+    def payment_deadline(self):
+        window = dt.timedelta(minutes=settings.PAYMENT_WINDOW_MINUTES)
+        return self.created_at + window
+
+    @property
+    def seconds_left(self):
+        if self.status != self.Status.PENDING:
+            return 0
+        left = (self.payment_deadline - timezone.now()).total_seconds()
+        return max(0, int(left))
+
+    @property
+    def is_payment_expired(self):
+        """Час вийшов — незалежно від того, чи хтось уже оновив статус."""
+        return (
+            self.status == self.Status.PENDING
+            and timezone.now() >= self.payment_deadline
+        )
+
+    @property
+    def is_payable(self):
+        """Чи можна вести гостя на оплату з нашого сайту.
+
+        `payment_url` веде на Servio, і відкликати його ми не можемо —
+        забороняємо лише доступ через себе.
+        """
+        return (
+            self.status == self.Status.PENDING
+            and bool(self.payment_url)
+            and not self.is_payment_expired
+        )
+
+    def expire(self, save=True):
+        """Перевести протерміновану бронь у `expired`. Ідемпотентно."""
+        if not self.is_payment_expired:
+            return False
+        self.status = self.Status.EXPIRED
+        if save:
+            self.save(update_fields=['status', 'updated_at'])
+        return True

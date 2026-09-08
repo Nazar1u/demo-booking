@@ -312,8 +312,16 @@ class Step4BookingTests(FlowTestCase):
         response = self.client.post(reverse('booking:guest'), GUEST_POST)
 
         booking = Booking.objects.get()
+        # Крок 4 веде через наш ендпоінт, а не прямо на Servio: так перевірка
+        # дедлайну оплати лишається єдиною точкою контролю.
         self.assertRedirects(
-            response, 'https://pay.example/R-777', fetch_redirect_response=False,
+            response, reverse('booking:pay', args=[booking.pk]),
+            fetch_redirect_response=False,
+        )
+        # а той уже віддає посилання Servio, поки вікно відкрите
+        self.assertRedirects(
+            self.client.get(reverse('booking:pay', args=[booking.pk])),
+            'https://pay.example/R-777', fetch_redirect_response=False,
         )
         self.assertEqual(booking.servio_booking_id, 'R-777')
         self.assertEqual(booking.status, Booking.Status.PENDING)

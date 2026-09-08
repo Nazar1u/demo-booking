@@ -216,6 +216,12 @@ SERVIO_HOTEL_ID = env.int('SERVIO_HOTEL_ID', default=0)
 
 SERVIO_TIMEOUT = env.float('SERVIO_TIMEOUT', default=15.0)
 
+# How long a booking may stay unpaid before this site rejects it. We never
+# learn whether the guest actually paid (the assignment says not to monitor
+# it), so this is a deadline, not a payment check. Servio's own `minPay`
+# rules are separate and outside our control.
+PAYMENT_WINDOW_MINUTES = env.int('PAYMENT_WINDOW_MINUTES', default=20)
+
 
 # Logging
 # Every Servio call is logged as key=value (see booking/services/servio.py).

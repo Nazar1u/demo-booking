@@ -52,7 +52,7 @@ class BookingAdmin(admin.ModelAdmin):
             ),
         }),
         ('Servio', {
-            'fields': ('status', 'servio_booking_id', 'pay_link'),
+            'fields': ('status', 'servio_booking_id', 'pay_link', 'deadline'),
         }),
         ('Сирі payload’и', {
             'classes': ('collapse',),
@@ -82,10 +82,22 @@ class BookingAdmin(admin.ModelAdmin):
     def pay_link(self, obj):
         if not obj.payment_url:
             return '—'
+        if not obj.is_payable:
+            # Посилання лишається в записі для розбору, але клікати його
+            # після дедлайну сенсу немає.
+            return format_html('<span title="{}">неактуальне</span>',
+                               obj.payment_url)
         return format_html(
             '<a href="{}" target="_blank" rel="noopener noreferrer">Перейти</a>',
             obj.payment_url,
         )
+
+    @admin.display(description='Дедлайн оплати')
+    def deadline(self, obj):
+        if obj.status != Booking.Status.PENDING:
+            return '—'
+        left = obj.seconds_left
+        return f'{obj.payment_deadline:%H:%M} (лишилось {left // 60} хв)'
 
     @admin.display(description='raw_request')
     def raw_request_pretty(self, obj):
@@ -105,7 +117,7 @@ class BookingAdmin(admin.ModelAdmin):
         )
 
     def get_readonly_fields(self, request, obj=None):
-        own = {'stay', 'guests_display', 'total', 'pay_link',
+        own = {'stay', 'guests_display', 'total', 'pay_link', 'deadline',
                'raw_request_pretty', 'raw_response_pretty'}
         return [f.name for f in self.model._meta.fields] + sorted(own)
 

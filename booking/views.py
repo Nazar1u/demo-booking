@@ -184,7 +184,9 @@ def _create_booking(request, criteria, selected, guest_data):
             redirect_url = _initiate_payment(request, client, booking, result)
 
         if redirect_url:
-            return redirect(redirect_url)
+            # Через власний ендпоінт, а не прямо на Servio: так перевірка
+            # дедлайну лишається єдиною точкою контролю.
+            return redirect('booking:pay', pk=booking.pk)
         return redirect('booking:done', pk=booking.pk)
 
     except ServioError as exc:
@@ -370,11 +372,50 @@ def healthz(request):
     return JsonResponse({'status': 'ok', 'database': 'ok'})
 
 
-def done(request, pk):
+def _own_booking_or_none(request, pk):
+    """Бронь доступна лише тому, хто її створив у цій сесії."""
     booking = get_object_or_404(Booking, pk=pk)
-    # Сторінка доступна лише тому, хто цю бронь щойно створив.
     if session.created_pk(request) != booking.pk:
+        return None
+    # Ліниве протермінування: сторінка має показувати правду навіть якщо
+    # планувальник саме зараз не працює.
+    if booking.expire():
+        logger.info('booking pk=%s протермінована при відкритті', booking.pk)
+    return booking
+
+
+def done(request, pk):
+    booking = _own_booking_or_none(request, pk)
+    if booking is None:
         messages.error(request, 'Ця бронь не з цієї сесії.')
         return redirect('booking:search')
     session.clear_flow(request)
     return render(request, 'booking/done.html', {'step': 4, 'booking': booking})
+
+
+def pay(request, pk):
+    """Перехід до оплати — через нас, а не прямим посиланням на Servio.
+
+    Сам URL платежу відкликати ми не можемо (він живе на боці Servio), тому
+    єдине, що в наших руках, — не віддавати його після дедлайну.
+    """
+    booking = _own_booking_or_none(request, pk)
+    if booking is None:
+        messages.error(request, 'Ця бронь не з цієї сесії.')
+        return redirect('booking:search')
+
+    if not booking.is_payable:
+        if booking.status == Booking.Status.EXPIRED:
+            messages.error(
+                request,
+                'Час на оплату вийшов — бронь відхилена. Щоб забронювати '
+                'знову, почніть спочатку.',
+            )
+        elif not booking.payment_url:
+            messages.error(request, 'Для цієї броні немає посилання на оплату.')
+        else:
+            messages.error(request, 'Ця бронь уже не очікує оплати.')
+        return redirect('booking:done', pk=booking.pk)
+
+    logger.info('booking pk=%s → перехід до оплати', booking.pk)
+    return redirect(booking.payment_url)
