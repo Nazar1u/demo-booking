@@ -12,20 +12,36 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 
 from pathlib import Path
 
+import environ
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env(
+    DEBUG=(bool, False),
+    ALLOWED_HOSTS=(list, ['localhost', '127.0.0.1']),
+    CSRF_TRUSTED_ORIGINS=(list, []),
+)
+
+# Local development reads .env; on the server every value comes from the
+# environment (docker compose / GitHub Secrets), so a missing file is fine.
+environ.Env.read_env(BASE_DIR / '.env')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5a$pr)_+#v1)(3t!35h=d%9#oxdi)8p$32y^w0n=!zks84(7e3'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+
+# Needed for the admin login form once the app is served on a non-standard
+# port (http://<host>:8080) — Django checks Origin against this list.
+CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS')
 
 
 # Application definition
@@ -72,11 +88,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
+# Driven entirely by DATABASE_URL: sqlite locally, postgres in the container.
+# Keep this the only place the engine is chosen — no PG-only fields in models.
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': env.db_url(
+        'DATABASE_URL',
+        default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',
+    ),
 }
 
 
@@ -125,3 +143,16 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+
+# HMS Servio integration
+# All calls go through the Django backend, never from the browser.
+
+SERVIO_API_BASE = env(
+    'SERVIO_API_BASE',
+    default='https://smartspot.servio.support/ServioQR/hms/api',
+)
+
+SERVIO_HOTEL_ID = env('SERVIO_HOTEL_ID', default='')
+
+SERVIO_TIMEOUT = env.float('SERVIO_TIMEOUT', default=15.0)
