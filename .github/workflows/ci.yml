@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+# Новий пуш у ту саму гілку скасовує попередній прогін.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: lint + tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      # Версію бере з .python-version
+      - name: Install Python
+        run: uv python install
+
+      # --frozen: збірка падає, якщо uv.lock розійшовся з pyproject.toml
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Django checks
+        run: uv run python manage.py check --settings=config.settings_test
+
+      # Ловить забуті makemigrations: модель змінили, міграцію не додали
+      - name: No missing migrations
+        run: uv run python manage.py makemigrations --check --dry-run --settings=config.settings_test
+
+      # На цьому етапі БД — SQLite. Postgres додається у Фазі 6.
+      - name: Tests
+        run: uv run pytest -q

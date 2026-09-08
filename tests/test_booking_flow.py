@@ -308,7 +308,7 @@ class Step4BookingTests(FlowTestCase):
         return self.stub
 
     def test_happy_path_creates_a_booking_and_redirects_to_payment(self):
-        stub = self.start()
+        self.start()
         response = self.client.post(reverse('booking:guest'), GUEST_POST)
 
         booking = Booking.objects.get()
@@ -361,7 +361,7 @@ class Step4BookingTests(FlowTestCase):
         )
 
     def test_servio_rejects_the_booking(self):
-        stub = self.start(FakeClient(book_error=ServioAPIError('Номер зайнятий')))
+        self.start(FakeClient(book_error=ServioAPIError('Номер зайнятий')))
         response = self.client.post(reverse('booking:guest'), GUEST_POST, follow=True)
         self.assertContains(response, 'Номер зайнятий')
         self.assertFalse(Booking.objects.exists())

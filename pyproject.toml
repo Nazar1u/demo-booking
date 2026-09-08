@@ -9,3 +9,43 @@ dependencies = [
     "django-environ>=0.12.0",
     "httpx>=0.28.1",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-django>=4.14.0",
+    "ruff>=0.16.6",
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings_test"
+testpaths = ["tests"]
+addopts = "--strict-markers --strict-config"
+
+[tool.ruff]
+line-length = 95
+target-version = "py314"
+extend-exclude = ["*/migrations/*"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W",   # pycodestyle
+    "F",        # pyflakes
+    "I",        # isort
+    "UP",       # pyupgrade
+    "B",        # flake8-bugbear
+    "C4",       # comprehensions
+    "DJ",       # flake8-django
+    "RUF",      # ruff-specific
+]
+ignore = [
+    # Кирилиця в рядках і коментарях — робоча мова проєкту, не «омоглифи».
+    "RUF001", "RUF002", "RUF003",
+    # `ordering`, `constraints`, `indexes`, `choices` — це API Django Meta,
+    # ClassVar на них нічого не дає.
+    "RUF012",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# У тестах довгі рядки з реальними payload'ами читабельніші, ніж перенесені.
+"tests/*" = ["E501"]

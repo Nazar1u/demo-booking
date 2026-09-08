@@ -288,7 +288,46 @@ Docker-образу і з CI, а для 4 кроків React не дає ніч�
 
 ---
 
-## Фаза 5 — Тести і CI (0.5 дня, ще на SQLite)
+## Фаза 5 — Тести і CI ✅ ВИКОНАНО
+
+- [x] `pytest` + `pytest-django`, `ruff` для лінту (dev-група в `pyproject.toml`)
+- [x] Юніти: клієнт Servio (49), форми (33), модель і `ensure_admin` (18)
+- [x] Інтеграційний: весь флоу з замоканим клієнтом (38)
+- [x] GitHub Actions на кожен push у `main` і кожен PR
+
+**128 тестів, 2 секунди, ruff чистий.** Прогін локально тими самими
+командами, що й у CI.
+
+### Як запускати
+
+```powershell
+uv run pytest -q                 # тести
+uv run ruff check .              # лінт
+uv run python manage.py test --settings=config.settings_test   # теж працює
+```
+
+Тести написані на `SimpleTestCase`/`TestCase`, тому йдуть і під pytest, і під
+штатним раннером Django — переписувати нічого не довелось.
+
+### Рішення фази
+
+- **`config/settings_test.py`** замість `conftest.py`: pytest-django піднімає
+  Django ще до того, як імпортується кореневий `conftest.py`, тож виставити
+  там `SECRET_KEY` неможливо. Модуль лише підставляє дефолти оточення **до**
+  імпорту справжніх settings — власне налаштування там одне, швидкий хешер
+  паролів (він зрізав прогін з 12 с до 2 с)
+- **Ключі Servio в тестах підставні** (`SERVIO_API_BASE=https://servio.invalid`):
+  жоден тест не має шансу піти в живий готель, навіть помилково
+- **`ruff format` не додаю** — він переписав би лапки в усьому коді, це не
+  задача цієї фази. Тільки лінт
+- **`RUF012` вимкнено**: спрацьовує на `Meta.ordering`/`constraints`/`indexes`,
+  де `ClassVar` нічого не дає
+- CI додатково перевіряє `manage.py check` і **`makemigrations --check`** —
+  щоб не поїхала модель без міграції
+- **`uv sync --frozen`**: збірка падає, якщо `uv.lock` розійшовся з
+  `pyproject.toml`
+
+### Початковий план фази
 
 - `pytest` + `pytest-django`, `ruff` для лінту
 - Юніт-тести: клієнт Servio, форми, модель

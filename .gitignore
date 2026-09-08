@@ -12,6 +12,10 @@ wheels/
 # Environment
 .env
 
+# Tooling caches (pytest/ruff кладуть і власний .gitignore, але явно надійніше)
+.pytest_cache/
+.ruff_cache/
+
 # Django
 db.sqlite3
 db.sqlite3-journal
