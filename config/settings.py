@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'booking',
 ]
 
 MIDDLEWARE = [
@@ -120,9 +122,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uk'
 
-TIME_ZONE = 'UTC'
+# Stored in UTC (USE_TZ), displayed in hotel local time — the admin is read
+# by the hotel, so Kyiv time is what makes sense there.
+TIME_ZONE = 'Europe/Kyiv'
 
 USE_I18N = True
 
@@ -143,6 +147,15 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+
+# Admin account provisioned by `manage.py ensure_admin` on every deploy.
+# The assignment requires admin:demo on the demo site; a real deployment must
+# override ADMIN_PASSWORD via the environment.
+
+ADMIN_USERNAME = env('ADMIN_USERNAME', default='admin')
+ADMIN_PASSWORD = env('ADMIN_PASSWORD', default='demo')
+ADMIN_EMAIL = env('ADMIN_EMAIL', default='')
 
 
 # HMS Servio integration

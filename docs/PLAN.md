@@ -136,7 +136,22 @@ data}`); формат помилок.
 
 ---
 
-## Фаза 2 — Модель даних і адмінка (0.5 дня, SQLite)
+## Фаза 2 — Модель даних і адмінка ✅ ВИКОНАНО
+
+- [x] **2.1** App `booking`
+- [x] **2.2** Модель `Booking` + міграція `0001_initial`
+- [x] **2.3** Штатна адмінка Django (`django.contrib.admin`), режим read-only
+- [x] **2.4** Ідемпотентна команда `ensure_admin`
+
+Додатково: `LANGUAGE_CODE = 'uk'`, `TIME_ZONE = 'Europe/Kyiv'` — адмінку читає
+готель, тож інтерфейс і час мають бути локальні (зберігаємо в UTC, `USE_TZ`).
+
+Перевірено: `CheckConstraint` відхиляє `check_out <= check_in`; логін
+`admin:demo` працює; changelist і детальна сторінка віддають 200 з реальними
+даними з фікстури; `/admin/booking/booking/add/` → 403; пошук по email
+працює; `ensure_admin` двічі підряд не робить змін.
+
+### Деталі
 
 **2.1** App `booking`.
 
