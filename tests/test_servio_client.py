@@ -361,6 +361,58 @@ class RetryTests(SimpleTestCase):
         self.assertEqual(len(calls), 3)
 
 
+class RedirectTests(SimpleTestCase):
+    """Servio відповідає на /make-payment 307-редіректом.
+
+    Це поклало першу реальну бронь: httpx за замовчуванням редіректи не
+    слідує, і клієнт отримував тіло редіректу замість JSON. Віджет у
+    браузері цього не помічає, бо fetch() слідує редіректам сам.
+    """
+
+    def _client_following_redirects(self, handler):
+        # Тут потрібен справжній httpx.Client з follow_redirects, а не лише
+        # MockTransport — саме його налаштування і тестуємо.
+        client = ServioClient(
+            base_url=BASE_URL, company_key=COMPANY_KEY, hotel_id=HOTEL_ID,
+            http_client=httpx.Client(
+                transport=httpx.MockTransport(handler), follow_redirects=True,
+            ),
+        )
+        client.retry_backoff = 0
+        return client
+
+    def test_307_on_make_payment_is_followed(self):
+        seen = []
+
+        def handler(request):
+            seen.append((request.method, str(request.url)))
+            if request.url.path.endswith('/make-payment') and len(seen) == 1:
+                return httpx.Response(
+                    307, headers={'Location': f'{BASE_URL}/make-payment/'},
+                    text='<html>redirect</html>',
+                )
+            return envelope({'paymentServiceID': 4, 'url': 'https://pay/ok'})
+
+        result = self._client_following_redirects(handler).make_payment(
+            account='0000049452', account_name='X', email='x@example.com',
+            phone='+380441234567', services=[{'total': 16200}],
+            payment_service=4,
+        )
+        self.assertEqual(len(seen), 2)
+        # 307 зберігає метод і тіло — інакше POST перетворився б на GET
+        self.assertEqual(seen[1][0], 'POST')
+        self.assertEqual(result.redirect_url, 'https://pay/ok')
+        self.assertEqual(result.payment_service_id, 4)
+
+    def test_default_client_follows_redirects(self):
+        client = ServioClient(base_url=BASE_URL, company_key=COMPANY_KEY,
+                              hotel_id=HOTEL_ID)
+        try:
+            self.assertTrue(client.client.follow_redirects)
+        finally:
+            client.close()
+
+
 class BookingPayloadTests(SimpleTestCase):
     def _offer(self):
         return parse_room_offers(

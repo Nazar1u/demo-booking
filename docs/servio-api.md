@@ -203,9 +203,14 @@ saleRestrictions   closedToSale / closedToArrive / minStay / maxStay /
 
 ### POST `/book` — створення броні
 
-⚠️ **Не викликалось.** Форма payload відновлена зі статичного розбору бандла
-(метод, що будує об'єкт `$` і передає його в `sendBookRequest`). Перевіряти
-живим викликом — один раз, у Фазі 7, на березень 2027.
+✅ **Перевірено живим викликом** 2026-09-08 (бронь `0000049452`,
+10–12 березня 2027). Payload, відновлений раніше зі статичного розбору
+бандла, виявився правильним — Servio прийняв його без змін.
+
+Одне уточнення, яке далося лише живою спробою: телефон валідується на
+стороні Servio. Перша спроба впала з `isError: true`,
+`message: "Невірний формат номера телефону"` — наша власна регулярка
+пропускає більше форматів, ніж приймає готель.
 
 Додатковий заголовок: `UTM-Marks: <JSON>` (utm-параметри; можна `{}`).
 
@@ -259,22 +264,62 @@ saleRestrictions   closedToSale / closedToArrive / minStay / maxStay /
 `paidType: 200` — віджет надсилає саме це значення (є серед `paidTypes`
 тарифу `[100, 300, 200]`).
 
-**Відповідь** (`data`), відновлена з `getBillModel()`:
+**Відповідь** (`data`) — фактична, з живого виклику:
 
 ```
-apiReservationID     номер броні        -> Booking.servio_booking_id
+apiReservationID     "0000049452" — рядок із провідними нулями, не число!
+totalAmount          16200.0
+currency             980
 hotelID
-totalAmount          сума
-currency
-paymentInfo
 rooms[]              { apiReservationID, roomTypeID, roomTypeApiID,
                        contractConditionID, dateArrival, dateDeparture,
                        adults, children, guestFullName, roomNightsApplied }
+paymentInfo          ← найважливіше, див. нижче
 ```
+
+> **`/book` уже віддає `paymentInfo`.** Тобто окремий GET `/payment-info`
+> між `/book` і `/make-payment` **не обов'язковий** — усе потрібне для
+> платежу приходить одразу. Ми лишили GET як запасний шлях, якщо готель
+> колись перестане вкладати `paymentInfo` у відповідь.
+
+`paymentInfo` (15 полів, значуще):
+
+```
+services[]           рахунки до оплати; кожен несе customerAccount
+                     (= apiReservationID), price, quantity, taxRate,
+                     taxAmount, originalPrice, apiServiceID,
+                     serviceProviderID, serviceSystemCode: "dwelling",
+                     priceDates[] з розбивкою по днях
+paymentServices[]    [{ "paymentService": 4 }] — саме цей сервіс у Riverwood
+useIFrame            false
+isPaymentEnabled     true
+totalAmount          16200.0
+accountName          імʼя гостя
+hotelName            "Riverwood"
+companyKey
+paymentPartsQuantity 0
+isReservationCancellationEnabled  false
+```
+
+**`paymentService: 4`** знімає невідомість із таблиці нижче: за гілками
+бандла `4` — це звичайний редірект на `data.url`, без платіжного віджета і
+без підпису мерчанта. `useIFrame: false` це підтверджує.
+
+Практичний наслідок: `paymentService` треба **передавати явно** у
+`/make-payment`. Ми спершу надсилали `null` — віджет так не робить.
 
 ### POST `/make-payment` — оплата
 
-⚠️ **Не викликалось.** Заголовок `UTM-Marks` теж потрібен.
+⚠️ **Відповідає HTTP 307.** Це поклало першу реальну бронь: `httpx` за
+замовчуванням редіректи не слідує, і клієнт отримав тіло редіректу замість
+JSON (`ServioProtocolError`). У браузері цього не видно — `fetch()` слідує
+редіректам сам.
+
+Виправлення — `follow_redirects=True` у клієнті. Для POST це безпечно саме
+тому, що код 307: він зберігає метод і тіло, а оригінальний запит сервером
+ще не обробляється. Був би 302 — httpx перетворив би POST на GET.
+
+Заголовок `UTM-Marks` теж потрібен.
 
 > **Порядок кроків.** Оплата йде не одразу після `/book`, а в три виклики:
 > `/book` → `/payment-info` (звідси беруться `services` і перелік

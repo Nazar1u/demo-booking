@@ -145,14 +145,26 @@ class GuestFormTests(SimpleTestCase):
         self.assertTrue(form.is_valid(), form.errors)
         self.assertEqual(form.cleaned_data['full_name'], 'Тест Тестенко')
 
-    def test_accepted_phone_formats(self):
-        for phone in ['+380441234567', '+380 44 123 45 67',
-                      '044 123-45-67', '(044) 123 45 67']:
-            with self.subTest(phone=phone):
-                self.assertTrue(guest(phone=phone).is_valid())
+    def test_phone_is_normalised_to_what_servio_accepts(self):
+        """Servio приймає лише «+» і цифри підряд — пробіли й дужки він
+        відхиляє з «Невірний формат номера телефону». Це поклало першу
+        реальну спробу броні, тому нормалізація тут обовʼязкова."""
+        cases = [
+            ('+380441234567', '+380441234567'),
+            ('+380 44 123 45 67', '+380441234567'),
+            ('+380 (44) 123-45-67', '+380441234567'),
+            ('380441234567', '+380441234567'),
+            ('044 123 45 67', '+380441234567'),      # місцевий формат
+            ('044-123-45-67', '+380441234567'),
+        ]
+        for raw, expected in cases:
+            with self.subTest(raw=raw):
+                form = guest(phone=raw)
+                self.assertTrue(form.is_valid(), form.errors)
+                self.assertEqual(form.cleaned_data['phone'], expected)
 
     def test_rejected_phone_formats(self):
-        for phone in ['нема', '12345', 'abc-def-ghij', '+']:
+        for phone in ['нема', '12345', 'abc-def-ghij', '+', '+38044']:
             with self.subTest(phone=phone):
                 form = guest(phone=phone)
                 self.assertFalse(form.is_valid())

@@ -423,7 +423,15 @@ class ServioClient:
     @property
     def client(self) -> httpx.Client:
         if self._client is None:
-            self._client = httpx.Client(timeout=httpx.Timeout(self.timeout))
+            # follow_redirects обовʼязково: /make-payment відповідає 307,
+            # і без цього ми отримуємо тіло редіректу замість JSON. Віджет у
+            # браузері не помічає цього, бо fetch() слідує редіректам сам.
+            # 307 зберігає метод і тіло, тож POST повторюється коректно —
+            # і оригінальний запит при 307 сервером ще не обробляється.
+            self._client = httpx.Client(
+                timeout=httpx.Timeout(self.timeout),
+                follow_redirects=True,
+            )
         return self._client
 
     def close(self) -> None:

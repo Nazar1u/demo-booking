@@ -27,7 +27,12 @@ DEFAULT_CHECK_OUT = dt.date(2027, 3, 12)
 # DATE_INPUT_FORMATS не має — тому формат задано явно.
 ISO_DATE = '%Y-%m-%d'
 
-PHONE_RE = re.compile(r'^\+?[\d\s().-]{9,20}$')
+# Servio приймає телефон лише у вигляді «+» і 10–15 цифр підряд: пробіли,
+# дужки й дефіси він відхиляє з `Невірний формат номера телефону`. Тому форма
+# приймає звичні людські формати, але нормалізує їх перед відправкою.
+PHONE_INPUT_RE = re.compile(r'^[+\d\s().\-]{9,25}$')
+PHONE_E164_RE = re.compile(r'^\+\d{10,15}$')
+UA_COUNTRY_CODE = '380'
 
 
 class DateInput(forms.DateInput):
@@ -139,7 +144,10 @@ class GuestForm(forms.Form):
 
     full_name = forms.CharField(label="Ім'я та прізвище", max_length=255)
     email = forms.EmailField(label='Email')
-    phone = forms.CharField(label='Телефон', max_length=32)
+    phone = forms.CharField(
+        label='Телефон', max_length=32,
+        help_text='Наприклад +380 44 123 45 67 — пробіли й дужки прибираємо самі',
+    )
     comment = forms.CharField(
         label='Коментар для готелю', required=False,
         widget=forms.Textarea(attrs={'rows': 3}),
@@ -154,10 +162,26 @@ class GuestForm(forms.Form):
         return name
 
     def clean_phone(self):
-        phone = self.cleaned_data['phone'].strip()
-        if not PHONE_RE.match(phone):
+        raw = self.cleaned_data['phone'].strip()
+        if not PHONE_INPUT_RE.match(raw):
             raise forms.ValidationError(
                 'Схоже, це не телефон. Приклад: +380 44 123 45 67.'
+            )
+
+        digits = re.sub(r'\D', '', raw)
+
+        if raw.startswith('+'):
+            phone = f'+{digits}'
+        elif digits.startswith('0') and len(digits) == 10:
+            # Місцевий український формат: 044 123 45 67 → +380441234567
+            phone = f'+{UA_COUNTRY_CODE}{digits[1:]}'
+        else:
+            phone = f'+{digits}'
+
+        if not PHONE_E164_RE.match(phone):
+            raise forms.ValidationError(
+                'Вкажіть номер у міжнародному форматі, наприклад '
+                '+380 44 123 45 67.'
             )
         return phone
 

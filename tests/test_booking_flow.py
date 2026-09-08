@@ -413,16 +413,41 @@ class Step4BookingTests(FlowTestCase):
         )
         self.assertEqual(len(stub.bookings), 1)
 
-    def test_payment_info_is_fetched_before_make_payment(self):
-        stub = self.start()
+    def test_payment_info_from_the_book_response_is_used(self):
+        """Реальний /book повертає paymentInfo одразу — зайвий GET на
+        /payment-info не потрібен."""
+        book = booking_result()
+        book = BookingResult(
+            reservation_id=book.reservation_id, hotel_id=book.hotel_id,
+            total_amount=book.total_amount, currency=book.currency,
+            payment_info={
+                'services': [{'customerAccount': '0000049452', 'total': 16200}],
+                'paymentServices': [{'paymentService': 4}],
+                'useIFrame': False,
+            },
+            raw_request=book.raw_request, raw_response=book.raw_response,
+        )
+        stub = self.start(FakeClient(book=book, payment_info={'services': []}))
         self.client.post(reverse('booking:guest'), GUEST_POST)
-        self.assertEqual(stub.payments[0]['account'], 'R-777')
+
+        sent = stub.payments[0]
+        self.assertEqual(sent['account'], 'R-777')
+        self.assertEqual(sent['services'][0]['customerAccount'], '0000049452')
+        # paymentService треба надсилати конкретний, а не null
+        self.assertEqual(sent['payment_service'], 4)
+        self.assertFalse(sent['use_iframe'])
+
+    def test_falls_back_to_payment_info_endpoint(self):
+        """Якщо /book колись перестане вкладати paymentInfo — беремо GET'ом."""
+        stub = self.start()  # book без paymentInfo
+        self.client.post(reverse('booking:guest'), GUEST_POST)
         self.assertEqual(stub.payments[0]['services'], [{'total': 16200}])
 
     def test_payment_info_without_services_does_not_break_the_flow(self):
         self.start(FakeClient(payment_info={'unexpected': True}))
         self.client.post(reverse('booking:guest'), GUEST_POST)
         self.assertEqual(self.stub.payments[0]['services'], [])
+        self.assertIsNone(self.stub.payments[0]['payment_service'])
         self.assertEqual(Booking.objects.count(), 1)
 
 

@@ -252,20 +252,32 @@ def _store(offer, guest_data, result):
 
 
 def _payment_services(payment_info):
-    """Витягти `services` з відповіді /payment-info.
-
-    Форма цієї відповіді живим викликом не перевірена (docs/servio-api.md),
-    тому обережно: не знайшли — йдемо далі з порожнім списком, а не падаємо.
-    """
+    """`services` з `paymentInfo` — рахунки, які треба оплатити."""
     if isinstance(payment_info, dict):
         services = payment_info.get('services')
         if isinstance(services, list):
             return services
     logger.warning(
-        'payment-info без services (тип %s) — надсилаю порожній список',
+        'paymentInfo без services (тип %s) — надсилаю порожній список',
         type(payment_info).__name__,
     )
     return []
+
+
+def _payment_service_id(payment_info):
+    """Який платіжний сервіс обрати.
+
+    Готель віддає перелік у `paymentInfo.paymentServices`; у Riverwood там
+    один елемент. Віджет так само надсилає конкретний сервіс, а не `null`.
+    """
+    if isinstance(payment_info, dict):
+        services = payment_info.get('paymentServices')
+        if isinstance(services, list) and services:
+            first = services[0]
+            if isinstance(first, dict):
+                return first.get('paymentService')
+    logger.warning('paymentInfo без paymentServices — надсилаю null')
+    return None
 
 
 def _initiate_payment(request, client, booking, result):
@@ -287,15 +299,24 @@ def _initiate_payment(request, client, booking, result):
         return ''
 
     try:
-        payment_info = client.get_payment_info(
-            result.reservation_id, currency=booking.currency,
-        )
+        # /book уже віддає paymentInfo — зайвий раз API не питаємо.
+        # Окремий GET лишається запасним варіантом, якщо готель колись
+        # перестане вкладати paymentInfo у відповідь.
+        payment_info = result.payment_info
+        if not _payment_services(payment_info):
+            payment_info = client.get_payment_info(
+                result.reservation_id, currency=booking.currency,
+            )
+
         payment = client.make_payment(
             account=result.reservation_id,
             account_name=booking.guest_name,
             email=booking.guest_email,
             phone=booking.guest_phone,
             services=_payment_services(payment_info),
+            payment_service=_payment_service_id(payment_info),
+            use_iframe=bool(payment_info.get('useIFrame'))
+            if isinstance(payment_info, dict) else False,
             currency=booking.currency,
         )
     except ServioError as exc:
